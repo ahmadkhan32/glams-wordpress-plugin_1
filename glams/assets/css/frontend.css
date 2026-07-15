@@ -1,0 +1,94 @@
+/* GLAMS Frontend Styles */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --glams-teal:    #006B75;
+  --glams-gold:    #B8860B;
+  --glams-navy:    #0D1B2A;
+  --glams-teal-lt: #E0F2F4;
+  --glams-sand:    #F7F3EC;
+  --glams-radius:  8px;
+  --glams-shadow:  0 4px 24px rgba(0,0,0,.10);
+}
+
+/* ── Gov Document Header ── */
+.glams-gov-doc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 28px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-bottom: 3px solid var(--glams-teal);
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 0;
+}
+.glams-gov-logo-left, .glams-gov-logo-right, .glams-gov-logo-center { text-align: center; }
+.glams-gov-logo-center img { max-height: 60px; }
+.glams-logo-ph { font-size: .7rem; font-weight: 700; color: #6b7280; line-height: 1.4; display: block; }
+
+/* ── Activities Table ── */
+.glams-activities-wrap {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0 0 10px 10px;
+  overflow: hidden;
+  box-shadow: var(--glams-shadow);
+}
+.glams-act-header {
+  display: grid;
+  grid-template-columns: 1fr 90px 90px 1fr;
+  background: var(--glams-teal);
+  color: #fff;
+  font-weight: 700;
+  font-size: .82rem;
+  padding: 12px 18px;
+}
+.glams-act-row {
+  display: grid;
+  grid-template-columns: 1fr 90px 90px 1fr;
+  padding: 12px 18px;
+  border-bottom: 1px solid #f3f4f6;
+  align-items: center;
+  font-size: .875rem;
+  color: #374151;
+  transition: background .15s;
+}
+.glams-act-row:hover { background: var(--glams-sand); }
+.glams-act-row .ar { text-align: right; direction: rtl; font-family: 'Tajawal', sans-serif; }
+
+/* ── Badges ── */
+.glams-badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+.glams-badge-active   { background: #d1fae5; color: #065f46; }
+.glams-badge-inactive { background: #fee2e2; color: #991b1b; }
+.glams-badge-pending  { background: #fef3c7; color: #92400e; }
+.glams-badge-expired  { background: #f3f4f6; color: #6b7280; }
+
+/* ── Companies Grid ── */
+.glams-companies-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 20px; padding: 20px 0; }
+.glams-company-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; box-shadow: var(--glams-shadow); }
+.glams-company-card h3 { font-size: 1rem; font-weight: 700; color: var(--glams-navy); margin-bottom: 6px; }
+.glams-company-card .lic { font-family: monospace; font-size: .78rem; color: #6b7280; margin-bottom: 8px; }
+
+/* ── Stats Row ── */
+.glams-stats-row { display: flex; gap: 24px; flex-wrap: wrap; padding: 24px 0; }
+.glams-stat-item { text-align: center; flex: 1; min-width: 120px; }
+.glams-stat-item strong { display: block; font-size: 2rem; font-weight: 800; color: var(--glams-teal); }
+.glams-stat-item span { font-size: .8rem; color: #6b7280; }
+
+/* ── Verify Form ── */
+.glams-verify-wrap { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; padding: 20px 0; }
+.glams-input { flex: 1; min-width: 200px; padding: 12px 16px; border: 2px solid #e5e7eb; border-radius: var(--glams-radius); font-size: .95rem; font-family: 'Inter', sans-serif; outline: none; }
+.glams-input:focus { border-color: var(--glams-teal); }
+.glams-btn { padding: 12px 24px; background: linear-gradient(135deg, #D4A017, #B8860B); color: #fff; border: none; border-radius: var(--glams-radius); font-weight: 700; cursor: pointer; }
+.glams-result { width: 100%; padding: 16px; background: var(--glams-teal-lt); border-left: 4px solid var(--glams-teal); border-radius: 6px; font-size: .875rem; color: #374151; }
+.glams-empty { color: #9ca3af; font-style: italic; }
+
+/* ── React Root ── */
+#glams-root { min-height: 400px; }
+
+/* ── Print ── */
+@media print {
+  .glams-gov-doc-header { border-bottom: 2px solid #000; }
+  .glams-act-header { background: #000 !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}

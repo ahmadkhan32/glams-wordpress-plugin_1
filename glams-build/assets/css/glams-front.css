@@ -1,0 +1,69 @@
+:root{--glams-primary:#006A4E;--glams-gold:#C9A84C;--glams-navy:#0D2B55;--glams-border:#E5E7EB;--glams-bg:#F8FAFB;--glams-radius:10px;}
+.glams-license-wrap{font-family:'Segoe UI',sans-serif;max-width:1100px;margin:0 auto;}
+.glams-gov-header{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid var(--glams-border);border-radius:var(--glams-radius);padding:20px 24px;margin-bottom:20px;flex-wrap:wrap;gap:16px;}
+.glams-gov-left{display:flex;align-items:center;gap:14px;}
+.glams-gov-emblem{width:54px;height:54px;background:linear-gradient(135deg,var(--glams-navy),#1a4080);color:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;}
+.glams-gov-center-text strong{display:block;font-size:13px;color:var(--glams-navy);}
+.glams-gov-title{text-align:center;flex:1;}
+.glams-gov-title h2{font-size:18px;font-weight:800;color:var(--glams-navy);margin:0 0 4px;}
+.glams-gov-title h3{font-size:16px;font-weight:700;color:var(--glams-primary);margin:0 0 4px;direction:rtl;}
+.glams-gov-title p{font-size:12px;color:#6B7280;margin:0;}
+.glams-gov-right{text-align:center;}
+.glams-dubai-logo{font-size:20px;font-weight:900;color:#006B6B;letter-spacing:-1px;}
+.glams-gov-right span{display:block;font-size:11px;color:#6B7280;margin-top:4px;}
+.glams-license-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:20px;}
+.glams-info-item{background:var(--glams-bg);border:1px solid var(--glams-border);border-radius:8px;padding:12px 16px;}
+.glams-label{display:block;font-size:11px;font-weight:600;color:#9CA3AF;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;}
+.glams-val{font-size:14px;font-weight:700;color:#1A1A2E;}
+.glams-green{color:var(--glams-primary);}
+.glams-table-wrap{border:1px solid var(--glams-border);border-radius:var(--glams-radius);overflow:hidden;}
+.glams-activity-table{width:100%;border-collapse:collapse;}
+.glams-activity-table thead{background:var(--glams-primary);}
+.glams-activity-table th{padding:12px 16px;color:#fff;font-size:13px;font-weight:700;text-align:left;}
+.glams-activity-table tbody tr{border-bottom:1px solid var(--glams-border);}
+.glams-activity-table tbody tr:hover{background:rgba(0,106,78,.04);}
+.glams-activity-table td{padding:12px 16px;font-size:13px;color:#1A1A2E;}
+.glams-ar-col{text-align:right!important;direction:rtl;}
+.glams-arabic{direction:rtl;text-align:right;}
+.glams-badge-active{background:#DCFCE7;color:#15803D;border:1px solid #BBF7D0;padding:3px 12px;border-radius:12px;font-size:11px;font-weight:700;}
+.glams-table-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;}
+.glams-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;border:2px solid transparent;transition:all .2s;text-decoration:none;}
+.glams-btn-primary{background:var(--glams-primary);color:#fff;border-color:var(--glams-primary);}
+.glams-btn-primary:hover{background:#004D38;color:#fff;}
+.glams-btn-outline{background:transparent;color:var(--glams-primary);border-color:var(--glams-primary);}
+.glams-btn-outline:hover{background:var(--glams-primary);color:#fff;}
+.glams-services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+.glams-service-card{background:#fff;border:1px solid var(--glams-border);border-radius:var(--glams-radius);padding:26px;transition:all .25s;cursor:pointer;}
+.glams-service-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.12);transform:translateY(-3px);border-color:var(--glams-primary);}
+.glams-service-icon{width:52px;height:52px;background:rgba(0,106,78,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--glams-primary);margin-bottom:16px;}
+.glams-service-card h3{font-size:16px;font-weight:700;margin-bottom:10px;color:#1A1A2E;}
+.glams-service-card p{font-size:13px;color:#6B7280;line-height:1.6;}
+.glams-learn-more{display:inline-block;color:var(--glams-primary);font-size:13px;font-weight:600;margin-top:12px;}
+.glams-immigration-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+.glams-immigration-card{background:#fff;border:1px solid var(--glams-border);border-radius:var(--glams-radius);padding:24px;border-left:4px solid var(--glams-primary);transition:all .2s;}
+.glams-immigration-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.1);}
+.glams-ic-badge{background:rgba(0,106,78,.1);color:var(--glams-primary);font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;margin-bottom:10px;display:inline-block;text-transform:uppercase;}
+.glams-immigration-card h3{font-size:16px;font-weight:700;margin:0 0 8px;color:#1A1A2E;}
+.glams-immigration-card p{font-size:13px;color:#6B7280;line-height:1.6;}
+.glams-verify-wrap{max-width:680px;margin:0 auto;padding:40px 20px;}
+.glams-verify-card{background:var(--glams-bg);border:1px solid var(--glams-border);border-radius:16px;padding:36px;text-align:center;}
+.glams-verify-card h2{font-size:24px;font-weight:800;margin-bottom:8px;}
+.glams-verify-card p{color:#6B7280;margin-bottom:24px;}
+.glams-verify-row{display:flex;gap:10px;max-width:440px;margin:0 auto 16px;}
+.glams-input{border:1.5px solid var(--glams-border);border-radius:8px;padding:10px 14px;font-size:14px;outline:none;transition:border-color .2s;font-family:inherit;background:#fff;}
+.glams-input:focus{border-color:var(--glams-primary);box-shadow:0 0 0 3px rgba(0,106,78,.1);}
+.glams-verify-row .glams-input{flex:1;}
+.glams-verify-result{background:#fff;border:1px solid var(--glams-border);border-radius:10px;padding:20px;margin-top:16px;text-align:left;}
+.glams-contact-form{background:#fff;border:1px solid var(--glams-border);border-radius:var(--glams-radius);padding:28px;max-width:680px;margin:0 auto;}
+.glams-contact-form h3{font-size:20px;font-weight:800;margin-bottom:20px;}
+.glams-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.glams-form-group{display:flex;flex-direction:column;gap:6px;}
+.glams-form-group label{font-size:12px;font-weight:600;color:#6B7280;text-transform:uppercase;}
+.glams-form-group .glams-input{width:100%;}
+.glams-full{grid-column:1/-1;}
+.glams-full-w{width:100%;justify-content:center;margin-top:4px;}
+.glams-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;}
+.glams-stat{background:linear-gradient(135deg,var(--glams-navy),var(--glams-primary));color:#fff;border-radius:var(--glams-radius);padding:24px;text-align:center;}
+.glams-num{font-size:36px;font-weight:900;color:#E8C878;}
+.glams-label{font-size:13px;color:rgba(255,255,255,.7);margin-top:6px;}
+@media(max-width:600px){.glams-form-grid{grid-template-columns:1fr;}.glams-gov-header{flex-direction:column;text-align:center;}.glams-verify-row{flex-direction:column;}}

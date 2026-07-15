@@ -1,0 +1,19 @@
+.glams-admin-wrap h1{font-size:24px;font-weight:800;color:#0D2B55;margin-bottom:20px;}
+.glams-admin-header{display:flex;align-items:center;gap:16px;background:linear-gradient(135deg,#0D2B55,#006A4E);color:#fff;padding:20px 24px;border-radius:10px;margin-bottom:24px;}
+.glams-admin-logo{width:52px;height:52px;background:rgba(255,255,255,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;color:#fff;}
+.glams-admin-header h1{color:#fff;margin:0;font-size:22px;}
+.glams-admin-header p{color:rgba(255,255,255,.7);margin:4px 0 0;}
+.glams-stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:24px;}
+.glams-admin-stat{background:#fff;border:1px solid #E5E7EB;border-radius:10px;padding:18px;display:flex;align-items:center;gap:14px;}
+.glams-stat-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;color:#fff;}
+.glams-admin-stat strong{display:block;font-size:22px;font-weight:800;color:#1A1A2E;}
+.glams-admin-stat small{font-size:12px;color:#9CA3AF;}
+.glams-admin-card{background:#fff;border:1px solid #E5E7EB;border-radius:10px;padding:20px;margin-bottom:20px;}
+.glams-admin-card h3{font-size:16px;font-weight:700;color:#1A1A2E;margin:0 0 16px;padding-bottom:12px;border-bottom:1px solid #F3F4F6;}
+.glams-admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.glams-quick-links{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
+.glams-quick-links li a{color:#006A4E;text-decoration:none;font-weight:600;font-size:14px;display:block;padding:8px 12px;border-radius:6px;transition:background .15s;}
+.glams-quick-links li a:hover{background:#F0FDF4;}
+.glams-shortcodes-list{background:#F8FAFB;border-radius:8px;padding:16px;font-size:13px;line-height:2.4;}
+.glams-shortcodes-list code{background:#E0F2FE;color:#0369A1;padding:3px 8px;border-radius:4px;font-size:12px;}
+@media(max-width:768px){.glams-admin-grid{grid-template-columns:1fr;}}

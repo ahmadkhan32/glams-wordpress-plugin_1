@@ -1,0 +1,64 @@
+/* GLAMS Admin Styles */
+.glams-admin { max-width: 1200px; }
+.glams-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid #e5e7eb; }
+.glams-header h1 { font-size: 1.6rem; font-weight: 800; color: #0D1B2A; margin: 0; }
+.glams-header p { color: #6b7280; margin: 2px 0 0; font-size: .875rem; }
+.glams-btn { background: linear-gradient(135deg, #D4A017,#B8860B) !important; color: #fff !important; border: none !important; border-radius: 6px !important; padding: 8px 20px !important; font-weight: 700 !important; }
+
+/* Stats */
+.glams-stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-bottom: 28px; }
+.glams-stat { display: flex; align-items: center; gap: 14px; background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 20px; box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+.stat-icon { font-size: 2rem; }
+.stat-num { font-size: 1.8rem; font-weight: 800; color: #006B75; line-height: 1; }
+.stat-lbl { font-size: .78rem; color: #6b7280; margin-top: 2px; }
+
+/* Quick Actions */
+.glams-quick-actions { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+.glams-quick-actions h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 16px; }
+.qa-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+.qa-card { display: flex; flex-direction: column; gap: 6px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px; padding: 18px; text-decoration: none; transition: all .2s; }
+.qa-card:hover { background: #E0F2F4; border-color: #006B75; transform: translateY(-2px); }
+.qa-card span { font-size: 1.5rem; }
+.qa-card strong { font-size: .9rem; color: #0D1B2A; }
+.qa-card p { font-size: .78rem; color: #6b7280; margin: 0; }
+
+/* Shortcodes ref */
+.glams-shortcodes-ref { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+.glams-shortcodes-ref h2 { font-size: 1.1rem; margin-bottom: 14px; }
+.glams-shortcodes-ref code { background: #f3f4f6; padding: 3px 8px; border-radius: 4px; font-size: .85rem; }
+
+/* Badges */
+.glams-badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: .72rem; font-weight: 700; }
+.glams-badge-active   { background: #d1fae5; color: #065f46; }
+.glams-badge-pending  { background: #fef3c7; color: #92400e; }
+.glams-badge-expired  { background: #fee2e2; color: #991b1b; }
+.glams-badge-suspended{ background: #f3f4f6; color: #6b7280; }
+.glams-badge-inactive { background: #f3f4f6; color: #6b7280; }
+
+/* Settings tabs */
+.glams-settings-tabs { display: flex; gap: 4px; margin-bottom: 0; border-bottom: 2px solid #e5e7eb; }
+.tab-btn { background: none; border: none; padding: 10px 18px; font-size: .875rem; font-weight: 600; cursor: pointer; color: #6b7280; border-bottom: 2px solid transparent; margin-bottom: -2px; }
+.tab-btn.active { color: #006B75; border-bottom-color: #006B75; }
+.glams-tab-pane { display: none; background: #fff; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 10px 10px; padding: 24px; }
+.glams-tab-pane.active { display: block; }
+
+/* Form grid */
+.glams-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-field { display: flex; flex-direction: column; gap: 6px; }
+.form-field label { font-size: .82rem; font-weight: 600; color: #374151; }
+.form-field input, .form-field select, .form-field textarea { padding: 8px 12px; border: 1px solid #e5e7eb; border-radius: 6px; font-size: .9rem; font-family: -apple-system, sans-serif; }
+.form-field.full { grid-column: 1 / -1; }
+
+/* Logo uploader */
+.glams-logo-uploader { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.glams-info-box { background: #E0F2F4; border: 1px solid #006B75; border-radius: 10px; padding: 20px; }
+.glams-info-box h3 { color: #004D55; margin-bottom: 10px; }
+.glams-info-box ol { padding-left: 20px; color: #374151; }
+.glams-info-box p { margin-top: 12px; color: #374151; }
+
+@media (max-width: 900px) {
+  .glams-stats-grid { grid-template-columns: 1fr 1fr; }
+  .qa-grid { grid-template-columns: 1fr 1fr; }
+  .glams-form-grid { grid-template-columns: 1fr; }
+  .form-field.full { grid-column: 1; }
+}
