@@ -2,10 +2,12 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 
+const isVercel = process.env.VERCEL === "1";
+
 export default defineConfig({
   plugins: [react()],
   build: {
-    outDir: path.resolve(__dirname, "../assets/react"),
+    outDir: isVercel ? "dist" : path.resolve(__dirname, "../assets/react"),
     emptyOutDir: true,
     rollupOptions: {
       output: {
