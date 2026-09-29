@@ -189,12 +189,16 @@ function statusBadge(status, arabic = false) {
   );
 }
 
-export default function App() {
-  const initialPage = validPages.has(window.location.hash.replace("#", ""))
-    ? window.location.hash.replace("#", "")
-    : "home";
+function getPageFromLocation() {
+  const path = window.location.pathname.replace(/^\/+|\/+$/g, "");
+  const hash = window.location.hash.replace(/^#\/?/, "");
+  if (validPages.has(path)) return path;
+  if (validPages.has(hash)) return hash;
+  return "home";
+}
 
-  const [currentPage, setCurrentPage] = useState(initialPage);
+export default function App() {
+  const [currentPage, setCurrentPage] = useState(getPageFromLocation);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [selectedCompanyId, setSelectedCompanyId] = useState(1);
   const [searchInput, setSearchInput] = useState("");
@@ -206,14 +210,32 @@ export default function App() {
   const [expandedService, setExpandedService] = useState(null);
 
   useEffect(() => {
-    const onHashChange = () => {
-      const next = window.location.hash.replace("#", "") || "home";
-      setCurrentPage(validPages.has(next) ? next : "home");
+    const handleLocationChange = () => {
+      setCurrentPage(getPageFromLocation());
     };
 
-    window.addEventListener("hashchange", onHashChange);
-    return () => window.removeEventListener("hashchange", onHashChange);
+    window.addEventListener("hashchange", handleLocationChange);
+    window.addEventListener("popstate", handleLocationChange);
+    return () => {
+      window.removeEventListener("hashchange", handleLocationChange);
+      window.removeEventListener("popstate", handleLocationChange);
+    };
   }, []);
+
+  useEffect(() => {
+    if (currentPage === "services") {
+      document.title = "Technical Services in UAE | GLAMS";
+      let metaDesc = document.querySelector('meta[name="description"]');
+      if (!metaDesc) {
+        metaDesc = document.createElement("meta");
+        metaDesc.name = "description";
+        document.head.appendChild(metaDesc);
+      }
+      metaDesc.content = "Explore professional technical, installation, maintenance and building services available from GLAMS in the UAE.";
+    } else {
+      document.title = "GLAMS – Government License & Activities Management System | UAE Technical Services";
+    }
+  }, [currentPage]);
 
   useEffect(() => {
     if (!toast.show) return undefined;
@@ -239,6 +261,10 @@ export default function App() {
   const navigate = (page) => {
     setCurrentPage(page);
     setMobileOpen(false);
+    if (window.history.pushState) {
+      const newPath = page === "home" ? "/" : `/${page}`;
+      window.history.pushState({ page }, "", newPath);
+    }
     window.location.hash = page;
     window.scrollTo({ top: 0, behavior: "smooth" });
     if (page === "verify") {
@@ -427,6 +453,11 @@ export default function App() {
                   <div className="service-link">Learn More <i className="fas fa-arrow-right" /></div>
                 </div>
               ))}
+            </div>
+            <div style={{ textAlign: "center", marginTop: 36 }}>
+              <button className="btn btn-primary btn-lg" onClick={() => navigate("services")}>
+                View All Technical Services <i className="fas fa-arrow-right" style={{ marginLeft: 8 }} />
+              </button>
             </div>
           </div>
         </section>
