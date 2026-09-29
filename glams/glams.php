@@ -30,6 +30,7 @@ require_once GLAMS_DIR . 'includes/class-glams-settings.php';
 require_once GLAMS_DIR . 'includes/class-glams-shortcodes.php';
 require_once GLAMS_DIR . 'api/class-glams-api.php';
 require_once GLAMS_DIR . 'admin/class-glams-admin.php';
+require_once GLAMS_DIR . 'template-parts/services/functions-services.php';
 
 /* ─── ELEMENTOR WIDGETS ──────────────────────────────── */
 if ( did_action( 'elementor/loaded' ) ) {
