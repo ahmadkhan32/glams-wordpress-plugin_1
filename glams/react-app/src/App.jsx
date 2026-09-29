@@ -49,16 +49,84 @@ const previewServices = [
   ["fa-file-pdf", "Document Services", "Professional document attestation, translation, notarization, and PRO services for all government departments.", "services"],
 ];
 
-const technicalServices = [
-  ["fa-bolt", "Electrical Works", "Licensed electrical installation, repair, and maintenance services compliant with UAE DEWA standards."],
-  ["fa-faucet", "Plumbing & Sanitary", "Comprehensive plumbing services including pipe repair, sanitary installation, and water system maintenance."],
-  ["fa-wind", "HVAC Systems", "Air-conditioning installation, ventilation systems, and air filtration maintenance with UAE cooling certified technicians."],
-  ["fa-hammer", "Carpentry & Flooring", "Custom woodwork, flooring installation, cabinets, and furniture services for residential and commercial projects."],
-  ["fa-paint-roller", "Painting & Plastering", "Interior and exterior painting, plastering, wallpaper installation, and surface finishing services."],
-  ["fa-broom", "Building Cleaning", "Professional building cleaning, deep cleaning, post-construction cleaning, and facility management services."],
-  ["fa-door-open", "False Ceiling & Partitions", "Suspended ceiling systems, light partitions, glass partitions, and office fit-out solutions."],
-  ["fa-drafting-compass", "Engraving & Decoration", "Custom engraving, ornamental works, decorative panels, and artistic finishes for premium projects."],
-  ["fa-cogs", "Electromechanical Services", "Complete electromechanical equipment installation, commissioning, and preventive maintenance programs."],
+const officialServices = [
+  {
+    id: "air-conditioning",
+    icon: "fa-wind",
+    title: "Air-Conditioning, Ventilation & Air Filtration Systems",
+    shortDescription: "Professional installation and maintenance services for air-conditioning, ventilation and air-filtration systems.",
+    features: ["AC system installation", "Ventilation systems", "Air filtration systems", "Maintenance support", "System inspection"],
+  },
+  {
+    id: "electromechanical",
+    icon: "fa-cogs",
+    title: "Electromechanical Equipment Installation & Maintenance",
+    shortDescription: "Installation and maintenance services for electromechanical equipment and related systems.",
+    features: ["Equipment installation", "Maintenance", "Inspection", "Repair support", "System servicing"],
+  },
+  {
+    id: "tiling",
+    icon: "fa-th-large",
+    title: "Floor & Wall Tiling Works",
+    shortDescription: "Professional floor and wall tiling services for residential and commercial spaces.",
+    features: ["Floor tiling", "Wall tiling", "Tile replacement", "Surface preparation", "Finishing work"],
+  },
+  {
+    id: "carpentry",
+    icon: "fa-hammer",
+    title: "Carpentry & Wood Flooring Works",
+    shortDescription: "Carpentry and wood-flooring services for interior residential and commercial environments.",
+    features: ["Carpentry work", "Wood flooring installation", "Flooring replacement", "Wood finishing", "Repair work"],
+  },
+  {
+    id: "engraving",
+    icon: "fa-drafting-compass",
+    title: "Engraving & Ornamentation Works",
+    shortDescription: "Detailed engraving and ornamentation services for suitable interior and decorative applications.",
+    features: ["Decorative work", "Engraving", "Ornamentation", "Finishing details"],
+  },
+  {
+    id: "wallpaper",
+    icon: "fa-paint-roller",
+    title: "Wallpaper Fixing Works",
+    shortDescription: "Professional wallpaper installation and finishing services for residential and commercial interiors.",
+    features: ["Wallpaper installation", "Surface preparation", "Wallpaper replacement", "Finishing", "Repair work"],
+  },
+  {
+    id: "false-ceiling",
+    icon: "fa-layer-group",
+    title: "False Ceiling & Light Partitions Installation",
+    shortDescription: "Installation of false ceilings and light partition systems for functional and professional interior spaces.",
+    features: ["False ceiling installation", "Light partitions", "Interior space division", "Finishing work", "Repair and maintenance"],
+  },
+  {
+    id: "electrical",
+    icon: "fa-bolt",
+    title: "Electrical Fittings & Fixtures Repairing & Maintenance",
+    shortDescription: "Electrical fittings and fixture repair and maintenance services for residential and commercial requirements.",
+    features: ["Electrical fixture maintenance", "Electrical fitting repair", "Inspection", "Maintenance support", "Replacement support"],
+  },
+  {
+    id: "sanitary",
+    icon: "fa-faucet",
+    title: "Sanitary Installation & Pipes Repairing",
+    shortDescription: "Sanitary installation and water-pipe repair services for residential and commercial properties.",
+    features: ["Sanitary installation", "Pipe repair", "Water pipe maintenance", "Leak-related repair work", "Plumbing fixture support"],
+  },
+  {
+    id: "plaster",
+    icon: "fa-paint-brush",
+    title: "Plaster Works",
+    shortDescription: "Professional plastering services for suitable interior and building surfaces.",
+    features: ["Plaster application", "Surface preparation", "Repair work", "Finishing", "Surface restoration"],
+  },
+  {
+    id: "cleaning",
+    icon: "fa-broom",
+    title: "Building Cleaning Services",
+    shortDescription: "Building and residential cleaning services designed to maintain clean and presentable environments.",
+    features: ["Building cleaning", "Residential cleaning", "General cleaning support", "Maintenance cleaning", "Interior cleaning"],
+  },
 ];
 
 const visaTypes = [
@@ -135,6 +203,7 @@ export default function App() {
   const [companyFilter, setCompanyFilter] = useState("");
   const [language, setLanguage] = useState("en");
   const [toast, setToast] = useState({ show: false, message: "Success" });
+  const [expandedService, setExpandedService] = useState(null);
 
   useEffect(() => {
     const onHashChange = () => {
@@ -658,29 +727,128 @@ export default function App() {
       </div>
 
       <div className={`page ${currentPage === "services" ? "active" : ""}`} id="page-services">
-        <div style={{ background: "linear-gradient(135deg,#0f1923,#1a2f3a)", padding: "80px 0", textAlign: "center" }}>
-          <div className="container">
-            <div className="section-tag" style={{ background: "rgba(184,150,46,0.2)", color: "var(--gold)" }}>What We Offer</div>
-            <h1 style={{ fontSize: 44, fontWeight: 800, color: "#fff", margin: "12px 0 14px", letterSpacing: -1 }}>Our Technical Services</h1>
-            <p style={{ color: "rgba(255,255,255,0.72)", fontSize: 17, maxWidth: 580, margin: "0 auto", lineHeight: 1.7 }}>Comprehensive government-approved technical services for businesses and individuals in the UAE.</p>
+
+        {/* ── HERO ── */}
+        <section className="svc-hero" aria-label="Services Hero">
+          <div className="svc-hero-overlay" />
+          <div className="container svc-hero-inner">
+            <div className="svc-hero-content">
+              <div className="section-tag svc-tag-gold">MOHAMMAD HAYAT TECHNICAL SERVICES L.L.C</div>
+              <h1 className="svc-hero-h1">Professional Technical Services in the UAE</h1>
+              <p className="svc-hero-sub">Reliable technical, maintenance and building services delivered with professional workmanship and a customer-focused approach.</p>
+              <div className="svc-hero-btns">
+                <button className="btn btn-primary btn-lg" onClick={() => navigate("contact")}><i className="fas fa-tools" /> Request a Service</button>
+                <button className="btn btn-outline btn-lg svc-hero-outline" onClick={() => navigate("contact")}><i className="fas fa-envelope" /> Contact Us</button>
+              </div>
+            </div>
           </div>
-        </div>
-        <section className="section services">
+        </section>
+
+        {/* ── OUR TECHNICAL SERVICES ── */}
+        <section className="section svc-grid-section" id="our-technical-services" aria-label="Our Technical Services">
           <div className="container">
-            <div className="grid grid-3">
-              {technicalServices.map(([icon, title, desc]) => (
-                <div key={title} className="service-card"><div className="service-icon"><i className={`fas ${icon}`} /></div><h3>{title}</h3><p>{desc}</p><div className="service-link">View Details <i className="fas fa-arrow-right" /></div></div>
+            <div className="section-head">
+              <div className="section-tag">Our Services</div>
+              <h2 className="section-title">Our Technical Services</h2>
+              <p className="section-desc">We provide a wide range of technical, maintenance, installation and building services for residential and commercial requirements.</p>
+              <div className="divider" />
+            </div>
+            <div className="svc-cards-grid" role="list">
+              {officialServices.map((svc) => {
+                const isOpen = expandedService === svc.id;
+                return (
+                  <article key={svc.id} id={`service-${svc.id}`} className={`svc-card${isOpen ? " svc-card--open" : ""}`} role="listitem">
+                    <div className="svc-card-top">
+                      <div className="svc-card-icon" aria-hidden="true"><i className={`fas ${svc.icon}`} /></div>
+                      <h3 className="svc-card-title">{svc.title}</h3>
+                      <p className="svc-card-desc">{svc.shortDescription}</p>
+                    </div>
+                    <button
+                      className="svc-view-btn"
+                      aria-expanded={isOpen}
+                      aria-controls={`svc-details-${svc.id}`}
+                      onClick={() => setExpandedService(isOpen ? null : svc.id)}
+                    >
+                      {isOpen ? "Hide Details" : "View Details"} <i className={`fas fa-chevron-${isOpen ? "up" : "down"}`} />
+                    </button>
+                    {isOpen && (
+                      <div className="svc-details" id={`svc-details-${svc.id}`} role="region" aria-label={`${svc.title} details`}>
+                        <ul className="svc-features-list">
+                          {svc.features.map((f) => (
+                            <li key={f}><i className="fas fa-check-circle" aria-hidden="true" /> {f}</li>
+                          ))}
+                        </ul>
+                        <button className="btn btn-primary btn-sm svc-enquire-btn" onClick={() => navigate("contact")}>
+                          <i className="fas fa-envelope" /> Enquire About This Service
+                        </button>
+                      </div>
+                    )}
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* ── WHY CHOOSE OUR TECHNICAL SERVICES ── */}
+        <section className="section svc-why-section" aria-label="Why Choose Our Technical Services">
+          <div className="container">
+            <div className="section-head">
+              <div className="section-tag">Why Choose Us</div>
+              <h2 className="section-title">Why Choose Our Technical Services?</h2>
+              <div className="divider" />
+            </div>
+            <div className="svc-why-grid">
+              {[
+                ["fa-medal", "Professional Service", "Focused technical service delivery for residential and commercial requirements."],
+                ["fa-headset", "Reliable Support", "Maintenance and technical support for applicable service requirements."],
+                ["fa-th", "Multiple Technical Services", "A broad range of licensed technical activities under one service provider."],
+                ["fa-handshake", "Customer-Focused Approach", "Clear communication and service-focused customer support."],
+              ].map(([icon, title, desc]) => (
+                <div key={title} className="svc-why-card">
+                  <div className="svc-why-icon" aria-hidden="true"><i className={`fas ${icon}`} /></div>
+                  <h3 className="svc-why-title">{title}</h3>
+                  <p className="svc-why-desc">{desc}</p>
+                </div>
               ))}
             </div>
           </div>
         </section>
-        <section className="cta-section">
+
+        {/* ── OUR TECHNICAL PROCESS ── */}
+        <section className="section svc-process-section" aria-label="Our Technical Process">
           <div className="container">
-            <h2>Need a Custom Service Quote?</h2>
-            <p>Contact our team for a tailored quotation on any technical service requirement in the UAE.</p>
+            <div className="section-head">
+              <div className="section-tag">How We Work</div>
+              <h2 className="section-title">Our Technical Process</h2>
+              <div className="divider" />
+            </div>
+            <div className="svc-process-grid">
+              {[
+                ["fa-phone", "01", "Contact Us", "Tell us about your technical service requirement."],
+                ["fa-clipboard-list", "02", "Requirement Assessment", "Understand the work required and relevant service details."],
+                ["fa-drafting-compass", "03", "Service Planning", "Plan the required installation, maintenance or technical work."],
+                ["fa-check-double", "04", "Service Delivery", "Complete the agreed technical service professionally."],
+              ].map(([icon, num, title, desc]) => (
+                <div key={num} className="svc-step">
+                  <div className="svc-step-num" aria-hidden="true">{num}</div>
+                  <div className="svc-step-icon" aria-hidden="true"><i className={`fas ${icon}`} /></div>
+                  <h3 className="svc-step-title">{title}</h3>
+                  <p className="svc-step-desc">{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── CTA ── */}
+        <section className="cta-section svc-cta-section" aria-label="Service Call To Action">
+          <div className="container">
+            <h2>Need Professional Technical Services?</h2>
+            <p>Get in touch with our team to discuss your technical service requirements.</p>
             <div className="cta-actions">
-              <button className="btn btn-white btn-lg" onClick={() => navigate("contact")}>Request Quote</button>
-              <button className="btn btn-gold btn-lg" onClick={() => showToast("WhatsApp opening...")}><i className="fab fa-whatsapp" /> WhatsApp Us</button>
+              <button className="btn btn-white btn-lg" onClick={() => navigate("contact")}><i className="fas fa-tools" /> Request a Service</button>
+              <button className="btn btn-gold btn-lg" onClick={() => navigate("contact")}><i className="fas fa-envelope" /> Contact Us</button>
             </div>
           </div>
         </section>
