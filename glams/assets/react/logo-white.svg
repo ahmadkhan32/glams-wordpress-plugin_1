@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 120" fill="none" width="100%" height="100%">
+  <!-- Circular Emblem on Left -->
+  <g transform="translate(10, 5)">
+    <!-- Outer Ring (White) -->
+    <circle cx="55" cy="55" r="50" stroke="#FFFFFF" stroke-width="7" fill="none" />
+    <!-- Inner Accent Arc (UAE Green) -->
+    <path d="M 55 12 A 43 43 0 1 1 20 85" stroke="#00843D" stroke-width="5" stroke-linecap="round" fill="none" />
+    <!-- Top Wrench Icon -->
+    <path d="M 40 28 L 70 28 M 48 24 L 48 32 M 66 23 C 69 25 71 28 69 31 C 67 34 64 34 62 33 L 42 33" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="43" cy="28" r="1.5" fill="#00843D" />
+    <!-- Big Monogram: M (Green), H (White), K (Green) -->
+    <text x="21" y="66" font-family="'Inter', sans-serif" font-weight="900" font-size="28" fill="#00843D">M</text>
+    <text x="47" y="66" font-family="'Inter', sans-serif" font-weight="900" font-size="28" fill="#FFFFFF">H</text>
+    <text x="70" y="66" font-family="'Inter', sans-serif" font-weight="900" font-size="28" fill="#00843D">K</text>
+    <!-- Bottom Badge Subtext inside emblem -->
+    <text x="55" y="86" font-family="'Inter', sans-serif" font-weight="800" font-size="8.5" fill="#FFFFFF" text-anchor="middle" letter-spacing="1.2">TECHNICAL</text>
+    <text x="55" y="96" font-family="'Inter', sans-serif" font-weight="800" font-size="7.5" fill="#00843D" text-anchor="middle" letter-spacing="1.5">SERVICES</text>
+  </g>
+
+  <!-- Typography on Right -->
+  <g transform="translate(125, 22)">
+    <text x="0" y="32" font-family="'Inter', sans-serif" font-weight="900" font-size="29" fill="#FFFFFF" letter-spacing="-0.5">MHK <tspan fill="#00843D">SERVICES</tspan></text>
+    <text x="2" y="54" font-family="'Inter', sans-serif" font-weight="700" font-size="11.5" fill="#00843D" letter-spacing="3.2">TECHNICAL SERVICES · UAE</text>
+    <rect x="2" y="64" width="46" height="3" rx="1.5" fill="#D4A64A" />
+    <text x="56" y="67" font-family="'Inter', sans-serif" font-weight="600" font-size="9" fill="#CBD5E1" letter-spacing="0.5">Dubai • Abu Dhabi • Sharjah</text>
+  </g>
+</svg>

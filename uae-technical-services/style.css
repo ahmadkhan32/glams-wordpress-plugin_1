@@ -1,0 +1,116 @@
+/*
+Theme Name: UAE Technical Services
+Theme URI: https://mhktechnicalservices.com/
+Author: MHK Technical Services
+Author URI: https://mhktechnicalservices.com/
+Description: Complete, reusable WordPress theme for UAE Technical Services. Crafted with a premium Deep Blue (#12304A), UAE Green (#00843D), Slate (#334155), and Gold (#D4A64A) design system. Fully responsive, featuring modular templates, centralized logo integration, customizer controls, and performance-optimized layouts.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.7
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: uae-technical-services
+Tags: business, custom-logo, custom-menu, featured-images, full-width-template, theme-options, translation-ready
+*/
+
+/* ─── GLOBAL DESIGN SYSTEM TOKENS ─── */
+:root {
+  --color-primary: #12304A;        /* Deep Blue */
+  --color-primary-dark: #0a1c2c;
+  --color-primary-light: #1b456b;
+  --color-accent: #00843D;         /* UAE Green */
+  --color-accent-hover: #006b31;
+  --color-accent-light: #e6f7ee;
+  --color-secondary-text: #334155; /* Slate */
+  --color-text-muted: #64748b;
+  --color-background: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-gold: #D4A64A;           /* Premium Gold Accent */
+  --color-gold-light: #fbf5e8;
+  --color-border: #E2E8F0;
+  --color-border-dark: #1e3a5f;
+
+  --font-heading: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --shadow-sm: 0 1px 3px rgba(18, 48, 74, 0.06);
+  --shadow-md: 0 4px 14px rgba(18, 48, 74, 0.08);
+  --shadow-lg: 0 12px 32px rgba(18, 48, 74, 0.12);
+  --shadow-green: 0 4px 14px rgba(0, 132, 61, 0.28);
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  --container-max: 1240px;
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── CSS RESETS & BASICS ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-background);
+  color: var(--color-secondary-text);
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover, a:focus {
+  color: var(--color-accent-hover);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+}

@@ -1,0 +1,166 @@
+/**
+ * Header and Navigation Stylesheet
+ * Deep Blue: #12304A, UAE Green: #00843D, Gold: #D4A64A
+ */
+
+/* ─── TOPBAR ─── */
+.site-topbar {
+  background-color: var(--color-primary-dark); /* #0a1c2c */
+  color: #cbd5e1;
+  font-size: 0.8125rem;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.topbar-left, .topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.topbar-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #cbd5e1;
+}
+
+.topbar-item a {
+  color: #cbd5e1;
+}
+
+.topbar-item a:hover {
+  color: var(--color-gold);
+}
+
+/* ─── MAIN HEADER ─── */
+.site-header {
+  background-color: var(--color-primary); /* Deep Blue #12304A */
+  color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(10, 28, 44, 0.25);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 84px;
+  padding: 10px 0;
+  gap: 20px;
+}
+
+/* ─── LOGO (HEADER) ─── */
+.header-branding {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.uae-logo-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.uae-logo-img {
+  height: 64px;
+  width: auto;
+  max-width: 250px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.uae-logo-link:hover .uae-logo-img {
+  transform: scale(1.02);
+}
+
+/* ─── NAVIGATION (CENTER) ─── */
+.header-navigation {
+  display: flex;
+  align-items: center;
+}
+
+.uae-nav-list {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+}
+
+.uae-nav-list a {
+  color: #f1f5f9;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 0.9375rem;
+  padding: 10px 4px;
+  position: relative;
+  display: inline-block;
+}
+
+.uae-nav-list a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-accent); /* #00843D */
+  transition: width 0.25s ease;
+  border-radius: 2px;
+}
+
+.uae-nav-list a:hover,
+.uae-nav-list .current-menu-item > a {
+  color: #ffffff;
+}
+
+.uae-nav-list a:hover::after,
+.uae-nav-list .current-menu-item > a::after {
+  width: 100%;
+}
+
+/* ─── HEADER CTA (RIGHT) ─── */
+.header-cta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ─── MOBILE TOGGLE BUTTON ─── */
+.mobile-toggle-btn {
+  display: none;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  cursor: pointer;
+  color: #ffffff;
+  transition: var(--transition);
+}
+
+.mobile-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--color-accent);
+}
+
+.hamburger-line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #ffffff;
+  margin: 5px 0;
+  transition: var(--transition);
+  border-radius: 2px;
+}

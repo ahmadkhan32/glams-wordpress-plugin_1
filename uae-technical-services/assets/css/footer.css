@@ -1,0 +1,116 @@
+/**
+ * Footer Stylesheet
+ * Deep Blue: #12304A, UAE Green: #00843D, Slate: #94A3B8, Gold: #D4A64A
+ */
+
+.site-footer {
+  background-color: var(--color-primary); /* Deep Blue #12304A */
+  color: #94a3b8;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 70px 0 28px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.2fr 1.4fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Footer Branding & Logo */
+.footer-branding {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-description {
+  color: #94a3b8;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  max-width: 360px;
+}
+
+.footer-heading {
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 28px;
+  height: 2px;
+  background-color: var(--color-gold);
+  border-radius: 2px;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  color: #cbd5e1;
+  font-size: 0.9375rem;
+  transition: var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--color-gold);
+  padding-left: 4px;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9375rem;
+  color: #cbd5e1;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+.footer-contact-item strong {
+  color: #ffffff;
+}
+
+.footer-contact-item i {
+  color: var(--color-gold);
+  margin-top: 3px;
+}
+
+/* Footer Bottom Bar */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.8125rem;
+  color: #64748b;
+}
+
+.footer-bottom a {
+  color: #94a3b8;
+}
+
+.footer-bottom a:hover {
+  color: var(--color-gold);
+}

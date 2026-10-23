@@ -1,0 +1,300 @@
+/**
+ * Homepage Sections Stylesheet
+ * Covers: Hero, Services, Company Overview, Benefits, Process, FAQs, Contact CTA
+ */
+
+/* ─── HERO SECTION ─── */
+.hero-section {
+  background: linear-gradient(135deg, #0a1c2c 0%, #12304A 60%, #0d3824 100%);
+  color: #ffffff;
+  padding: 100px 0 110px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 132, 61, 0.22) 0%, rgba(18, 48, 74, 0) 70%);
+  pointer-events: none;
+}
+
+.hero-content {
+  max-width: 800px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: 3.25rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  margin: 20px 0;
+  letter-spacing: -0.02em;
+}
+
+.hero-title span {
+  color: #4ade80; /* Bright Green Accent */
+}
+
+.hero-lead {
+  font-size: 1.25rem;
+  line-height: 1.65;
+  color: #cbd5e1;
+  margin-bottom: 36px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ─── SERVICES GRID ─── */
+.services-section {
+  padding: 90px 0;
+  background-color: var(--color-background);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.service-card {
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-icon-box {
+  width: 54px;
+  height: 54px;
+  background-color: var(--color-accent-light);
+  color: var(--color-accent);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.service-title {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+
+.service-desc {
+  color: var(--color-secondary-text);
+  font-size: 0.9375rem;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+/* ─── ABOUT OVERVIEW ─── */
+.about-section {
+  padding: 90px 0;
+  background-color: var(--color-surface);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.about-text h2 {
+  font-size: 2.25rem;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  margin-bottom: 18px;
+  font-size: 1.0625rem;
+}
+
+.about-features-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.about-features-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.about-features-list i {
+  color: var(--color-accent);
+}
+
+/* ─── WHY CHOOSE US / BENEFITS ─── */
+.benefits-section {
+  padding: 90px 0;
+  background: #f1f5f9;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.benefit-card {
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.benefit-card i {
+  font-size: 2.25rem;
+  color: var(--color-gold);
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+/* ─── PROCESS SECTION ─── */
+.process-section {
+  padding: 90px 0;
+  background-color: var(--color-surface);
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  position: relative;
+}
+
+.step-card {
+  text-align: center;
+  padding: 24px 16px;
+}
+
+.step-num {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  border: 3px solid var(--color-gold);
+}
+
+/* ─── TESTIMONIALS ─── */
+.testimonials-section {
+  padding: 90px 0;
+  background-color: var(--color-background);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.testimonial-card {
+  padding: 30px 24px;
+}
+
+.testimonial-stars {
+  color: var(--color-gold);
+  margin-bottom: 14px;
+}
+
+/* ─── FAQ ACCORDION ─── */
+.faq-section {
+  padding: 90px 0;
+  background-color: var(--color-surface);
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  margin-bottom: 14px;
+  overflow: hidden;
+  background-color: var(--color-surface);
+  transition: var(--transition);
+}
+
+.faq-item.is-active {
+  border-color: var(--color-accent);
+}
+
+.faq-question {
+  width: 100%;
+  padding: 18px 24px;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  cursor: pointer;
+  text-align: left;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  padding: 0 24px;
+  color: var(--color-secondary-text);
+  font-size: 0.9375rem;
+}
+
+.faq-item.is-active .faq-answer {
+  max-height: 400px;
+  padding-bottom: 18px;
+}
+
+/* ─── CONTACT CTA BANNER ─── */
+.cta-banner {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #0d3824 100%);
+  color: #ffffff;
+  padding: 60px 40px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin: 40px 0 80px;
+  box-shadow: var(--shadow-lg);
+}
+
+.cta-banner h2 {
+  color: #ffffff;
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.cta-banner p {
+  color: #cbd5e1;
+  font-size: 1.0625rem;
+}

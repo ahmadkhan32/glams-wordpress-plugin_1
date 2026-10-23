@@ -1,0 +1,145 @@
+/**
+ * Responsive Stylesheet
+ * Breakpoints for tablet, mobile, and small screens
+ */
+
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .process-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 860px) {
+  .site-topbar {
+    display: none;
+  }
+
+  .mobile-toggle-btn {
+    display: block;
+  }
+
+  .header-navigation {
+    position: fixed;
+    top: 84px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-primary); /* Deep Blue */
+    flex-direction: column;
+    align-items: stretch;
+    padding: 24px;
+    box-shadow: var(--shadow-lg);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: var(--transition);
+    overflow-y: auto;
+    z-index: 999;
+  }
+
+  .header-navigation.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .uae-nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+  }
+
+  .uae-nav-list li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .uae-nav-list a {
+    display: block;
+    padding: 14px 0;
+    font-size: 1.0625rem;
+  }
+
+  .header-cta .btn {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: 2.35rem;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .uae-logo-img {
+    height: 48px;
+    max-width: 180px;
+  }
+
+  .header-inner {
+    min-height: 68px;
+  }
+
+  .header-navigation {
+    top: 68px;
+  }
+
+  .hero-section {
+    padding: 60px 0 70px;
+  }
+
+  .hero-title {
+    font-size: 1.95rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .benefits-grid, .process-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .content-box {
+    padding: 24px 18px;
+  }
+}
