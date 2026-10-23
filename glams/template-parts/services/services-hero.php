@@ -9,7 +9,7 @@ $contact_url = get_permalink( get_page_by_path( 'contact' ) ) ?: '#contact';
     <div class="svc-hero-overlay"></div>
     <div class="svc-container svc-hero-inner">
         <div class="svc-hero-content">
-            <div class="svc-tag-gold">MOHAMMAD HAYAT TECHNICAL SERVICES L.L.C</div>
+            <div class="svc-tag-gold">MHK TECHNICAL SERVICES L.L.C</div>
             <h1 class="svc-hero-h1">Professional Technical Services in the UAE</h1>
             <p class="svc-hero-sub">
                 Reliable technical, maintenance and building services delivered with professional workmanship and a customer-focused approach.

@@ -1,5 +1,5 @@
-=== GLAMS – Government License & Activities Management System ===
-Contributors: TechServ UAE
+=== MHK Technical Services – License & Activities Management System ===
+Contributors: MHK Technical Services
 Tags: license management, immigration, activities table, elementor, government
 Requires at least: 6.0
 Tested up to: 6.7

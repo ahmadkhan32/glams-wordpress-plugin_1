@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name:       GLAMS – Government License & Activities Management System
- * Plugin URI:        https://yoursite.com/glams
- * Description:       Enterprise government license, activities management, immigration & technical services portal for UAE. ReactJS + WordPress + Elementor.
+ * Plugin Name:       MHK Technical Services – Activities & License Management System
+ * Plugin URI:        https://mhktechnicalservices.com/
+ * Description:       Enterprise technical services, activities management, immigration & facility portal for MHK Technical Services UAE. ReactJS + WordPress + Elementor.
  * Version:           1.0.0
- * Author:            TechServ UAE
- * Author URI:        https://techservuae.com
+ * Author:            MHK Technical Services
+ * Author URI:        https://mhktechnicalservices.com/
  * License:           GPL v2 or later
  * Text Domain:       glams
  * Requires PHP:      8.0

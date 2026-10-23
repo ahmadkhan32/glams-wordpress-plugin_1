@@ -146,7 +146,7 @@ const processSteps = [
 ];
 
 const testimonials = [
-  ["M", "Mohammed Al Rashid", "Al Rashid Technical Services, Dubai", '"GLAMS handled our complete license renewal in under 3 days. Their team is professional and their online verification system is outstanding."'],
+  ["M", "Mohammed Al Rashid", "Al Rashid Technical Services, Dubai", '"MHK Technical Services handled our complete facility and technical contracting with exceptional quality. Their engineering team is outstanding."'],
   ["A", "Ahmed Khalil", "Gulf Construction LLC, Abu Dhabi", '"The immigration visa service was seamless. They arranged our entire team\'s work visas in time. Excellent Arabic-English bilingual support."'],
   ["S", "Sarah Jameson", "InfraCore Systems, Sharjah", '"Their government license activities system is exactly what we needed. The QR verification feature makes certificate validation incredibly easy."'],
 ];
@@ -224,16 +224,16 @@ export default function App() {
 
   useEffect(() => {
     if (currentPage === "services") {
-      document.title = "Technical Services in UAE | GLAMS";
+      document.title = "Technical Services in UAE | MHK Technical Services";
       let metaDesc = document.querySelector('meta[name="description"]');
       if (!metaDesc) {
         metaDesc = document.createElement("meta");
         metaDesc.name = "description";
         document.head.appendChild(metaDesc);
       }
-      metaDesc.content = "Explore professional technical, installation, maintenance and building services available from GLAMS in the UAE.";
+      metaDesc.content = "Explore professional technical, installation, maintenance and building services available from MHK Technical Services in the UAE.";
     } else {
-      document.title = "GLAMS – Government License & Activities Management System | UAE Technical Services";
+      document.title = "MHK Technical Services – Premier UAE Technical & Maintenance Solutions";
     }
   }, [currentPage]);
 
@@ -322,7 +322,7 @@ export default function App() {
     <>
       <div className="top-bar">
         <div className="container">
-          <span><i className="fas fa-phone" style={{ marginRight: 6 }} /> +971 4 123 4567 &nbsp;|&nbsp; <i className="fas fa-envelope" style={{ marginRight: 6 }} /> info@glams.ae</span>
+          <span><i className="fas fa-phone" style={{ marginRight: 6 }} /> +971 4 123 4567 &nbsp;|&nbsp; <i className="fas fa-envelope" style={{ marginRight: 6 }} /> info@mhktechnicalservices.com</span>
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
             <div className="top-bar-links">
               <a onClick={() => navigate("license")}><i className="fas fa-file-alt" /> License Lookup</a>
@@ -339,13 +339,11 @@ export default function App() {
 
       <nav className="navbar">
         <div className="container navbar-inner">
-          <div className="nav-logo" onClick={() => navigate("home")}> 
-            <div className="nav-logo-icon">
-              <svg viewBox="0 0 24 24"><path d="M12 2L3 7v10l9 5 9-5V7L12 2zm0 2.3L19 8v8l-7 3.9L5 16V8l7-3.7z" /></svg>
-            </div>
+          <div className="nav-logo" onClick={() => navigate("home")} style={{ display: "flex", alignItems: "center", gap: 10 }}> 
+            <img src="/mhk-technical-services-logo.png" alt="MHK Technical Services" style={{ height: 48, width: "auto", objectFit: "contain" }} />
             <div className="nav-logo-text">
-              <div className="brand">GLAMS</div>
-              <div className="tagline">Government License Management</div>
+              <div className="brand">MHK Technical Services</div>
+              <div className="tagline">Technical Contracting &amp; Facility Solutions</div>
             </div>
           </div>
           <div className="nav-links">
@@ -407,7 +405,7 @@ export default function App() {
                 <div className="hero-card-header">
                   <div className="hero-card-logo">
                     <div className="hc-logo-box"><i className="fas fa-building-columns" /></div>
-                    <div><div className="hc-brand">GLAMS Portal</div><div className="hc-sub">Government System</div></div>
+                    <div><div className="hc-brand">MHK Portal</div><div className="hc-sub">Technical Services</div></div>
                   </div>
                   <div className="hc-badge"><i className="fas fa-circle" style={{ fontSize: 8, marginRight: 5 }} />Live</div>
                 </div>
@@ -466,7 +464,7 @@ export default function App() {
           <div className="container">
             <div className="why-grid">
               <div>
-                <div className="section-tag">Why GLAMS</div>
+                <div className="section-tag">Why MHK Technical Services</div>
                 <h2 className="section-title" style={{ textAlign: "left", marginBottom: 32 }}>Why Businesses Trust Our Platform</h2>
                 <div className="why-list">
                   {[
@@ -484,7 +482,7 @@ export default function App() {
               </div>
               <div className="why-visual">
                 <h3>Trusted by 2,400+ Businesses Across the UAE</h3>
-                <p style={{ color: "rgba(255,255,255,0.75)", fontSize: 15, lineHeight: 1.7 }}>From small enterprises to multinational corporations, GLAMS has been the trusted partner for government compliance in the UAE for over 12 years.</p>
+                <p style={{ color: "rgba(255,255,255,0.75)", fontSize: 15, lineHeight: 1.7 }}>From residential properties to commercial developments, MHK Technical Services has been the trusted partner for technical contracting in the UAE for over 12 years.</p>
                 <div className="why-numbers">
                   {[["12+", "Years in UAE"], ["50+", "PRO Experts"], ["7", "Emirates"], ["98%", "Approval Rate"]].map(([num, label]) => (
                     <div key={label} className="why-num-item"><div className="why-num-big">{num}</div><div className="why-num-lbl">{label}</div></div>
@@ -608,8 +606,8 @@ export default function App() {
               </div>
 
               <div className="gov-footer">
-                <div><i className="fas fa-qrcode" style={{ marginRight: 8 }} />Verify at: portal.glams.ae/verify</div>
-                <div>Document No: GLAMS-2024-001234 &nbsp;|&nbsp; Generated: 15/07/2026</div>
+                <div><i className="fas fa-qrcode" style={{ marginRight: 8 }} />Verify at: portal.mhktechnicalservices.com/verify</div>
+                <div>Document No: MHK-2024-001234 &nbsp;|&nbsp; Generated: 15/07/2026</div>
                 <div className="gov-footer-ar" style={{ fontFamily: "var(--font-ar)", direction: "rtl" }}>وثيقة رسمية معتمدة</div>
               </div>
             </div>
@@ -922,17 +920,17 @@ export default function App() {
       <div className={`page ${currentPage === "about" ? "active" : ""}`} id="page-about">
         <div className="about-hero">
           <div className="container">
-            <div className="section-tag" style={{ background: "rgba(184,150,46,0.2)", color: "var(--gold)" }}>About GLAMS</div>
+            <div className="section-tag" style={{ background: "rgba(184,150,46,0.2)", color: "var(--gold)" }}>About MHK Technical Services</div>
             <h1 style={{ marginTop: 12 }}>Powering UAE Business Compliance</h1>
-            <p>Founded in Dubai in 2012, GLAMS has been the trusted technology partner for government license management across all seven Emirates of the UAE.</p>
+            <p>Founded in Dubai in 2012, MHK Technical Services has been the trusted technical partner for building maintenance, MEP, and facility contracting across all seven Emirates of the UAE.</p>
           </div>
         </div>
         <section className="section">
           <div className="container">
             <div className="about-grid">
               <div className="about-text">
-                <h2>The Most Advanced License Management System in the UAE</h2>
-                <p>GLAMS was built with a single mission: to simplify the complex world of UAE government compliance. From trade license applications to certificate verification, our platform handles thousands of transactions daily for companies across all industries.</p>
+                <h2>The Premier Technical Services Provider in the UAE</h2>
+                <p>MHK Technical Services was built with a single mission: to deliver premier, compliant technical contracting and maintenance services. From air-conditioning installations to civil contracting and certificate verification, our platform handles projects across all sectors.</p>
                 <p>Our system is fully integrated with official UAE government portals including Dubai DET, MOHRE, ICA, and all 7 Emirates' economic departments, ensuring real-time data accuracy and regulatory compliance.</p>
                 <p>We serve over 2,400 active companies ranging from small enterprises to multinational corporations, processing more than 15,000 activities monthly through our government-certified platform.</p>
                 <div style={{ display: "flex", gap: 16, marginTop: 24, flexWrap: "wrap" }}>
@@ -978,7 +976,7 @@ export default function App() {
                 <h2>We're Here to Help</h2>
                 <div className="contact-info-item"><div className="contact-info-icon"><i className="fas fa-map-marker-alt" /></div><div className="contact-info-text"><h4>Office Address</h4><p>Al Quoz Industrial Area 3<br />Dubai, United Arab Emirates<br />P.O. Box 123456</p></div></div>
                 <div className="contact-info-item"><div className="contact-info-icon"><i className="fas fa-phone" /></div><div className="contact-info-text"><h4>Phone & WhatsApp</h4><p>+971 4 123 4567<br />+971 50 987 6543 (WhatsApp)</p></div></div>
-                <div className="contact-info-item"><div className="contact-info-icon"><i className="fas fa-envelope" /></div><div className="contact-info-text"><h4>Email</h4><p>info@glams.ae<br />support@glams.ae</p></div></div>
+                <div className="contact-info-item"><div className="contact-info-icon"><i className="fas fa-envelope" /></div><div className="contact-info-text"><h4>Email</h4><p>info@mhktechnicalservices.com<br />support@mhktechnicalservices.com</p></div></div>
                 <div className="contact-info-item"><div className="contact-info-icon"><i className="fas fa-clock" /></div><div className="contact-info-text"><h4>Working Hours</h4><p>Mon–Fri: 8:00 AM – 6:00 PM<br />Sat: 9:00 AM – 2:00 PM<br />Emergency support: 24/7</p></div></div>
                 <div style={{ marginTop: 24 }}>
                   <h4 style={{ fontSize: 14, fontWeight: 700, marginBottom: 14 }}>Follow Us</h4>
@@ -1015,8 +1013,11 @@ export default function App() {
         <div className="container">
           <div className="footer-grid">
             <div className="footer-brand">
-              <div className="brand-name"><i className="fas fa-building-columns" style={{ color: "var(--primary)", marginRight: 8 }} />GLAMS System</div>
-              <p>The UAE's most advanced Government License & Activities Management System. Trusted by 2,400+ businesses across all seven Emirates since 2012.</p>
+              <div className="brand-name" style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                <img src="/mhk-technical-services-logo.png" alt="MHK Technical Services" style={{ height: 42, width: "auto", objectFit: "contain" }} />
+                <span>MHK Technical Services</span>
+              </div>
+              <p>Premier UAE Technical &amp; Facility Maintenance Solutions. Delivering HVAC, MEP, tiling, carpentry, and building services across Dubai and all seven Emirates.</p>
               <div className="social-links">
                 <div className="social-link"><i className="fab fa-linkedin-in" /></div>
                 <div className="social-link"><i className="fab fa-instagram" /></div>
@@ -1049,14 +1050,14 @@ export default function App() {
               <ul>
                 <li><a>Al Quoz, Dubai, UAE</a></li>
                 <li><a>+971 4 123 4567</a></li>
-                <li><a>info@glams.ae</a></li>
+                <li><a href="mailto:info@mhktechnicalservices.com">info@mhktechnicalservices.com</a></li>
                 <li><a>Mon–Sat: 8AM–6PM</a></li>
                 <li><a onClick={() => navigate("contact")}>Get Support</a></li>
               </ul>
             </div>
           </div>
           <div className="footer-bottom">
-            <div>© 2026 GLAMS – Government License & Activities Management System. All rights reserved.</div>
+            <div>© 2026 MHK Technical Services – Premier UAE Technical &amp; Maintenance Solutions. All rights reserved.</div>
             <div className="footer-bottom-links">
               <a>Privacy Policy</a>
               <a>Terms of Service</a>

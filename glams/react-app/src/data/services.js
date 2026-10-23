@@ -1,6 +1,6 @@
 /**
- * GLAMS – Official Services Data
- * Source: MOHAMMAD HAYAT TECHNICAL SERVICES L.L.C — UAE Commercial License
+ * MHK Technical Services – Official Services Data
+ * Source: MHK TECHNICAL SERVICES L.L.C — UAE Commercial License
  * 11 active licensed technical activities
  */
 

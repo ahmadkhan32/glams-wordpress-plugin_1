@@ -12,26 +12,57 @@ export default function Navbar({ currentPage, navigate }) {
   ];
 
   return (
-    <nav className="glams-placeholder" style={{ margin: "16px auto" }}>
-      {pages.map((page) => (
-        <button
-          key={page}
-          onClick={() => navigate(page)}
-          style={{
-            marginRight: 8,
-            marginBottom: 8,
-            background: currentPage === page ? "#0b1f3a" : "#e8edf7",
-            color: currentPage === page ? "#fff" : "#0b1f3a",
-            border: "none",
-            borderRadius: 6,
-            padding: "8px 12px",
-            cursor: "pointer",
-            textTransform: "capitalize",
-          }}
-        >
-          {page}
-        </button>
-      ))}
+    <nav
+      style={{
+        maxWidth: "1200px",
+        margin: "12px auto",
+        padding: "10px 16px",
+        background: "#ffffff",
+        borderRadius: "8px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        flexWrap: "wrap",
+        gap: "10px",
+        border: "1px solid #e2e8f0",
+      }}
+    >
+      <div
+        style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}
+        onClick={() => navigate("home")}
+      >
+        <img
+          src="/mhk-technical-services-logo.png"
+          alt="MHK Technical Services"
+          style={{ height: "40px", width: "auto", objectFit: "contain" }}
+        />
+        <span style={{ fontWeight: 700, fontSize: "16px", color: "#0f172a" }}>
+          MHK Technical Services
+        </span>
+      </div>
+
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
+        {pages.map((page) => (
+          <button
+            key={page}
+            onClick={() => navigate(page)}
+            style={{
+              background: currentPage === page ? "#2bb302" : "#f1f5f9",
+              color: currentPage === page ? "#ffffff" : "#0f172a",
+              border: "none",
+              borderRadius: 6,
+              padding: "7px 12px",
+              cursor: "pointer",
+              fontSize: "13px",
+              fontWeight: 600,
+              textTransform: "capitalize",
+              transition: "all 0.2s ease",
+            }}
+          >
+            {page}
+          </button>
+        ))}
+      </div>
     </nav>
   );
 }

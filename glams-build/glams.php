@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: GLAMS — Government License & Activities Management System
- * Description: Enterprise license activity management for UAE government-style websites. Bilingual EN/AR, PDF export, QR verification, Elementor widgets.
+ * Plugin Name: MHK Technical Services — Activities & License Management System
+ * Description: Enterprise license activity management for UAE technical services websites. Bilingual EN/AR, PDF export, QR verification, Elementor widgets.
  * Version:     1.0.0
- * Author:      MHT Technical Services
+ * Author:      MHK Technical Services
  * License:     GPL v2 or later
  * Requires at least: 6.0
  * Requires PHP: 8.0

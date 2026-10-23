@@ -1,4 +1,4 @@
-=== GLAMS — Government License & Activities Management System ===
+=== MHK Technical Services — License & Activities Management System ===
 Author: MHT Technical Services
 Version: 1.0.0
 Requires at least: 6.0
