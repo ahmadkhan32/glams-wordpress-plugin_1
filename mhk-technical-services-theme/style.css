@@ -700,11 +700,12 @@ button, input, textarea, select {
   margin-bottom: 30px;
 }
 
-/* ─── FOOTER ─── */
+/* ─── FOOTER (Opposite Light Luxury Theme) ─── */
 .mhk-site-footer {
-  background-color: var(--mhk-dark);
-  color: #cbd5e1;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #ffffff;
+  color: #475569;
+  border-top: 3px solid var(--mhk-primary);
+  box-shadow: 0 -4px 20px rgba(18, 48, 74, 0.04);
   padding: 60px 0 24px;
 }
 
@@ -727,7 +728,7 @@ button, input, textarea, select {
 }
 
 .mhk-footer-description {
-  color: #94a3b8;
+  color: #475569;
   font-size: 0.9375rem;
   line-height: 1.65;
   margin-top: 4px;
@@ -735,7 +736,7 @@ button, input, textarea, select {
 }
 
 .mhk-footer-title {
-  color: #ffffff;
+  color: #0f172a;
   font-size: 1rem;
   font-weight: 700;
   margin-bottom: 20px;
@@ -760,8 +761,9 @@ button, input, textarea, select {
 }
 
 .mhk-footer-links a {
-  color: #94a3b8;
+  color: #475569;
   font-size: 0.875rem;
+  font-weight: 500;
   transition: var(--mhk-transition);
 }
 
@@ -774,19 +776,19 @@ button, input, textarea, select {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  color: #94a3b8;
+  color: #475569;
   font-size: 0.875rem;
   margin-bottom: 12px;
   line-height: 1.5;
 }
 
 .mhk-footer-contact-item strong {
-  color: #f1f5f9;
+  color: #0f172a;
 }
 
 /* Footer Bottom */
 .mhk-footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid #E2E8F0;
   padding-top: 24px;
   display: flex;
   justify-content: space-between;
@@ -798,7 +800,7 @@ button, input, textarea, select {
 }
 
 .mhk-footer-bottom a {
-  color: #94a3b8;
+  color: #64748b;
 }
 
 .mhk-footer-bottom a:hover {

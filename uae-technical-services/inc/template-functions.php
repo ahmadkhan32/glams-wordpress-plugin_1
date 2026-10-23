@@ -34,7 +34,7 @@ function uae_get_theme_logo( $location = 'header', $variant = 'auto' ) {
 
     // Default to bundled theme logos based on variant/location
     if ( empty( $logo_url ) ) {
-        if ( $variant === 'white' || $location === 'header' || $location === 'footer' ) {
+        if ( $variant === 'white' ) {
             $logo_url = $theme_uri . '/assets/images/logo-white.svg';
         } else {
             $logo_url = $theme_uri . '/assets/images/logo.svg';

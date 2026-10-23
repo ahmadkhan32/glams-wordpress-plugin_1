@@ -1,15 +1,15 @@
 /**
- * Header and Navigation Stylesheet
- * Deep Blue: #12304A, UAE Green: #00843D, Gold: #D4A64A
+ * Header and Navigation Stylesheet (Opposite Light Luxury Theme)
+ * Background: #FFFFFF / #F8FAFC, Primary Text: #12304A, Accent: #00843D, Gold: #D4A64A
  */
 
-/* ─── TOPBAR ─── */
+/* ─── TOPBAR (Opposite Light Contrast) ─── */
 .site-topbar {
-  background-color: var(--color-primary-dark); /* #0a1c2c */
-  color: #cbd5e1;
+  background-color: #F8FAFC;
+  color: #334155;
   font-size: 0.8125rem;
   padding: 8px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid #E2E8F0;
 }
 
 .topbar-inner {
@@ -30,25 +30,40 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: #cbd5e1;
+  color: #475569;
+  font-weight: 500;
 }
 
 .topbar-item a {
-  color: #cbd5e1;
+  color: #12304A;
+  transition: color 0.2s ease;
 }
 
 .topbar-item a:hover {
-  color: var(--color-gold);
+  color: var(--color-accent); /* #00843D */
 }
 
-/* ─── MAIN HEADER ─── */
+.badge-gold {
+  background: rgba(212, 166, 74, 0.15);
+  color: #9A7426;
+  border: 1px solid rgba(212, 166, 74, 0.4);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+/* ─── MAIN HEADER (Opposite Pure White Crisp Contrast) ─── */
 .site-header {
-  background-color: var(--color-primary); /* Deep Blue #12304A */
-  color: #ffffff;
+  background-color: #FFFFFF;
+  color: #12304A;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 20px rgba(10, 28, 44, 0.25);
+  box-shadow: 0 4px 20px rgba(18, 48, 74, 0.06);
+  border-bottom: 1px solid #E2E8F0;
+  border-top: 3px solid #00843D;
+  transition: all 0.3s ease;
 }
 
 .header-inner {
@@ -76,7 +91,7 @@
 .uae-logo-img {
   height: 64px;
   width: auto;
-  max-width: 250px;
+  max-width: 260px;
   object-fit: contain;
   display: block;
   transition: transform 0.2s ease;
@@ -97,16 +112,19 @@
   align-items: center;
   gap: 24px;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .uae-nav-list a {
-  color: #f1f5f9;
+  color: #12304A;
   font-family: var(--font-heading);
-  font-weight: 500;
+  font-weight: 600;
   font-size: 0.9375rem;
   padding: 10px 4px;
   position: relative;
   display: inline-block;
+  transition: color 0.2s ease;
 }
 
 .uae-nav-list a::after {
@@ -115,7 +133,7 @@
   bottom: 0;
   left: 0;
   width: 0;
-  height: 2px;
+  height: 2.5px;
   background-color: var(--color-accent); /* #00843D */
   transition: width 0.25s ease;
   border-radius: 2px;
@@ -123,7 +141,7 @@
 
 .uae-nav-list a:hover,
 .uae-nav-list .current-menu-item > a {
-  color: #ffffff;
+  color: var(--color-accent); /* #00843D */
 }
 
 .uae-nav-list a:hover::after,
@@ -138,28 +156,42 @@
   gap: 12px;
 }
 
+.header-cta-btn {
+  background-color: var(--color-accent);
+  color: #FFFFFF !important;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(0, 132, 61, 0.25);
+  transition: all 0.2s ease;
+}
+
+.header-cta-btn:hover {
+  background-color: #006b31;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 132, 61, 0.35);
+}
+
 /* ─── MOBILE TOGGLE BUTTON ─── */
 .mobile-toggle-btn {
   display: none;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: #F1F5F9;
+  border: 1px solid #CBD5E1;
   border-radius: var(--radius-sm);
   padding: 8px 10px;
   cursor: pointer;
-  color: #ffffff;
+  color: #12304A;
   transition: var(--transition);
 }
 
 .mobile-toggle-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: #E2E8F0;
   border-color: var(--color-accent);
 }
 
 .hamburger-line {
   display: block;
   width: 22px;
-  height: 2px;
-  background-color: #ffffff;
+  height: 2.5px;
+  background-color: #12304A;
   margin: 5px 0;
   transition: var(--transition);
   border-radius: 2px;

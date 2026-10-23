@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
         <div class="footer-grid">
             <!-- Branding Column with Reused Logo -->
             <div class="footer-col footer-branding">
-                <?php uae_the_theme_logo( 'footer', 'white' ); ?>
+                <?php uae_the_theme_logo( 'footer', 'standard' ); ?>
                 <p class="footer-description">
                     <strong>MHK Technical Services</strong> provides trusted, premier technical and facility contracting across Dubai and the United Arab Emirates. Delivering certified MEP, HVAC, interior fit-out, and corporate maintenance solutions.
                 </p>
@@ -70,7 +70,7 @@ defined( 'ABSPATH' ) || exit;
                     <i class="fas fa-envelope"></i>
                     <div>
                         <strong>Email:</strong><br>
-                        <a href="mailto:info@mhktechnicalservices.com" style="color: #cbd5e1;">info@mhktechnicalservices.com</a>
+                        <a href="mailto:info@mhktechnicalservices.com" style="color: var(--color-primary); font-weight: 500;">info@mhktechnicalservices.com</a>
                     </div>
                 </div>
                 <div class="footer-contact-item">

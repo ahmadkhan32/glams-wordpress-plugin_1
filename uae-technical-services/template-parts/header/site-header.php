@@ -40,7 +40,7 @@ defined( 'ABSPATH' ) || exit;
     <div class="container header-inner">
         <!-- Logo on the Left -->
         <div class="header-branding">
-            <?php uae_the_theme_logo( 'header', 'white' ); ?>
+            <?php uae_the_theme_logo( 'header', 'standard' ); ?>
         </div>
 
         <!-- Navigation in the Center -->
