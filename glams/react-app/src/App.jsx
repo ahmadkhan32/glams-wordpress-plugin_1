@@ -130,12 +130,12 @@ const officialServices = [
 ];
 
 const visaTypes = [
-  ["Employment", "Work Visa", "For professionals employed by UAE companies. Includes labor card, Emirates ID, and health card processing.", "2–3 Years", "From AED 3,500"],
-  ["Family", "Residence Visa", "Sponsor spouse, children, and parents under UAE family residence visa with full documentation support.", "2 Years", "From AED 2,800"],
-  ["Premium", "Golden Visa", "Long-term 5 or 10 year UAE residence for investors, entrepreneurs, exceptional talents, and researchers.", "5–10 Years", "From AED 8,000"],
-  ["Business", "Investor Visa", "UAE investor residence visa for business owners and shareholders in mainland or free zone companies.", "3 Years", "From AED 4,200"],
-  ["Short-term", "Tourist Visa", "Single entry or multiple-entry tourist visas for short stays, extended visits, and visa on arrival assistance.", "30–90 Days", "From AED 450"],
-  ["Students", "Student Visa", "Student residence permits for UAE universities and schools with full enrollment documentation support.", "1 Year", "From AED 1,800"],
+  ["Employment", "Work Visa", "For professionals employed by UAE companies. Includes labor card, Emirates ID, and health card processing.", "2–3 Years"],
+  ["Family", "Residence Visa", "Sponsor spouse, children, and parents under UAE family residence visa with full documentation support.", "2 Years"],
+  ["Premium", "Golden Visa", "Long-term 5 or 10 year UAE residence for investors, entrepreneurs, exceptional talents, and researchers.", "5–10 Years"],
+  ["Business", "Investor Visa", "UAE investor residence visa for business owners and shareholders in mainland or free zone companies.", "3 Years"],
+  ["Short-term", "Tourist Visa", "Single entry or multiple-entry tourist visas for short stays, extended visits, and visa on arrival assistance.", "30–90 Days"],
+  ["Students", "Student Visa", "Student residence permits for UAE universities and schools with full enrollment documentation support.", "1 Year"],
 ];
 
 const processSteps = [
@@ -905,8 +905,8 @@ export default function App() {
           <div className="container">
             <div className="section-head"><div className="section-tag">Visa Types</div><h2 className="section-title">UAE Visa Categories</h2><div className="divider" /></div>
             <div className="visa-grid">
-              {visaTypes.map(([type, name, desc, duration, price]) => (
-                <div key={name} className="visa-card"><div className="visa-card-top"><div className="visa-type" style={type === "Premium" ? { color: "var(--gold)" } : undefined}>{type}</div><div className="visa-name">{name}</div><div className="visa-desc">{desc}</div></div><div className="visa-card-footer"><div className="visa-duration"><i className="fas fa-clock" style={{ marginRight: 5 }} />{duration}</div><div className="visa-price">{price}</div></div></div>
+              {visaTypes.map(([type, name, desc, duration]) => (
+                <div key={name} className="visa-card"><div className="visa-card-top"><div className="visa-type" style={type === "Premium" ? { color: "var(--gold)" } : undefined}>{type}</div><div className="visa-name">{name}</div><div className="visa-desc">{desc}</div></div><div className="visa-card-footer"><div className="visa-duration"><i className="fas fa-clock" style={{ marginRight: 5 }} />{duration}</div></div></div>
               ))}
             </div>
           </div>
