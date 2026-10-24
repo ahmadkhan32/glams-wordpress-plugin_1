@@ -25,11 +25,15 @@ defined( 'ABSPATH' ) || exit;
         <div class="topbar-right">
             <span class="topbar-item">
                 <i class="fas fa-phone-alt"></i>
-                <a href="tel:+97141234567">+971 4 123 4567</a>
+                <a href="tel:+971582166143">+971 58 216 6143</a>
+            </span>
+            <span class="topbar-item">
+                <i class="fab fa-whatsapp" style="color: #25D366;"></i>
+                <a href="https://wa.me/971582166143" target="_blank" rel="noopener">WhatsApp</a>
             </span>
             <span class="topbar-item">
                 <i class="fas fa-envelope"></i>
-                <a href="mailto:info@mhktechnicalservices.com">info@mhktechnicalservices.com</a>
+                <a href="mailto:Ummibangash@gmail.com">Ummibangash@gmail.com</a>
             </span>
         </div>
     </div>

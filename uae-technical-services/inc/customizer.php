@@ -16,7 +16,7 @@ function uae_technical_services_customize_register( $wp_customize ) {
 
     // Phone
     $wp_customize->add_setting( 'uae_phone', [
-        'default'           => '+971 4 123 4567',
+        'default'           => '+971 58 216 6143',
         'sanitize_callback' => 'sanitize_text_field',
     ] );
     $wp_customize->add_control( 'uae_phone', [
@@ -27,7 +27,7 @@ function uae_technical_services_customize_register( $wp_customize ) {
 
     // Email
     $wp_customize->add_setting( 'uae_email', [
-        'default'           => 'info@mhktechnicalservices.com',
+        'default'           => 'Ummibangash@gmail.com',
         'sanitize_callback' => 'sanitize_email',
     ] );
     $wp_customize->add_control( 'uae_email', [
@@ -38,7 +38,7 @@ function uae_technical_services_customize_register( $wp_customize ) {
 
     // Address
     $wp_customize->add_setting( 'uae_address', [
-        'default'           => 'Al Quoz Industrial Area, Dubai, United Arab Emirates',
+        'default'           => 'Al tawar near qusais metro station, Dubai, United Arab Emirates',
         'sanitize_callback' => 'sanitize_textarea_field',
     ] );
     $wp_customize->add_control( 'uae_address', [

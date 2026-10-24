@@ -156,7 +156,7 @@ class GLAMS_Shortcodes {
             </div>
             <div class="glams-form-group">
               <label>Phone</label>
-              <input type="tel" name="phone" placeholder="+971 50 XXX XXXX" class="glams-input"/>
+              <input type="tel" name="phone" placeholder="+971 58 216 6143" class="glams-input"/>
             </div>
             <div class="glams-form-group">
               <label>Service Required</label>

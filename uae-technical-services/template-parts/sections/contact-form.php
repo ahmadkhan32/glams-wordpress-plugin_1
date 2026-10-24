@@ -26,16 +26,16 @@ defined( 'ABSPATH' ) || exit;
                     <i class="fas fa-map-marker-alt" style="font-size: 1.25rem; color: var(--color-accent);"></i>
                     <div>
                         <strong style="color: var(--color-primary); font-size: 1rem;">Main Headquarters:</strong><br>
-                        Al Quoz Industrial Area 3, Dubai, UAE
+                        Al tawar near qusais metro station, Dubai, UAE
                     </div>
                 </div>
 
                 <div class="footer-contact-item" style="color: var(--color-secondary-text); margin-bottom: 20px;">
-                    <i class="fas fa-phone-alt" style="font-size: 1.25rem; color: var(--color-accent);"></i>
+                    <i class="fab fa-whatsapp" style="font-size: 1.25rem; color: #25D366;"></i>
                     <div>
                         <strong style="color: var(--color-primary); font-size: 1rem;">Phone &amp; WhatsApp:</strong><br>
-                        <a href="tel:+97141234567" style="color: var(--color-primary);">+971 4 123 4567</a><br>
-                        <a href="https://wa.me/971509876543" target="_blank" rel="noopener" style="color: var(--color-accent); font-weight: 600;">+971 50 987 6543 (WhatsApp)</a>
+                        <a href="tel:+971582166143" style="color: var(--color-primary);">+971 58 216 6143</a><br>
+                        <a href="https://wa.me/971582166143" target="_blank" rel="noopener" style="color: #25D366; font-weight: 600;">+971 58 216 6143 (WhatsApp)</a>
                     </div>
                 </div>
 
@@ -43,8 +43,7 @@ defined( 'ABSPATH' ) || exit;
                     <i class="fas fa-envelope" style="font-size: 1.25rem; color: var(--color-accent);"></i>
                     <div>
                         <strong style="color: var(--color-primary); font-size: 1rem;">Official Email:</strong><br>
-                        <a href="mailto:info@mhktechnicalservices.com" style="color: var(--color-primary);">info@mhktechnicalservices.com</a><br>
-                        <a href="mailto:support@mhktechnicalservices.com" style="color: var(--color-secondary-text);">support@mhktechnicalservices.com</a>
+                        <a href="mailto:Ummibangash@gmail.com" style="color: var(--color-primary);">Ummibangash@gmail.com</a>
                     </div>
                 </div>
 
@@ -63,7 +62,7 @@ defined( 'ABSPATH' ) || exit;
                         </div>
                         <div class="form-group">
                             <label for="uae-phone">Phone Number *</label>
-                            <input type="tel" id="uae-phone" class="form-control" placeholder="+971 50 123 4567" required />
+                            <input type="tel" id="uae-phone" class="form-control" placeholder="+971 58 216 6143" required />
                         </div>
                     </div>
 

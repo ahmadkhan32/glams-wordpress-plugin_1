@@ -22,7 +22,7 @@ $faqs = [
     ],
     [
         'q' => 'How can I get an estimate for fit-out or maintenance works?',
-        'a' => 'You can request an estimate online by filling out our quick contact form, messaging us on WhatsApp, or calling our helpline at +971 4 123 4567. We offer free initial consultations and site surveys.',
+        'a' => 'You can request an estimate online by filling out our quick contact form, messaging us on WhatsApp (+971 58 216 6143), or calling our helpline at +971 58 216 6143. We offer free initial consultations and site surveys.',
     ],
 ];
 ?>

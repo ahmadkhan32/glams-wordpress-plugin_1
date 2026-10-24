@@ -29,10 +29,13 @@ if ( function_exists( 'wp_body_open' ) ) {
             </div>
             <div class="mhk-topbar-right">
                 <span class="mhk-topbar-item">
-                    📞 <a href="tel:+97141234567">+971 4 123 4567</a>
+                    📞 <a href="tel:+971582166143">+971 58 216 6143</a>
                 </span>
                 <span class="mhk-topbar-item">
-                    ✉️ <a href="mailto:info@mhktechnicalservices.com">info@mhktechnicalservices.com</a>
+                    💬 <a href="https://wa.me/971582166143" target="_blank" rel="noopener">WhatsApp</a>
+                </span>
+                <span class="mhk-topbar-item">
+                    ✉️ <a href="mailto:Ummibangash@gmail.com">Ummibangash@gmail.com</a>
                 </span>
             </div>
         </div>

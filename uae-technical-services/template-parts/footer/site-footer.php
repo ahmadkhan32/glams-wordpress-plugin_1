@@ -56,21 +56,28 @@ defined( 'ABSPATH' ) || exit;
                     <i class="fas fa-map-marker-alt"></i>
                     <div>
                         <strong>Office:</strong><br>
-                        Al Quoz Industrial Area, Dubai, United Arab Emirates
+                        Al tawar near qusais metro station, Dubai, United Arab Emirates
                     </div>
                 </div>
                 <div class="footer-contact-item">
                     <i class="fas fa-phone-alt"></i>
                     <div>
                         <strong>Phone:</strong><br>
-                        <a href="tel:+97141234567" style="color: #cbd5e1;">+971 4 123 4567</a>
+                        <a href="tel:+971582166143" style="color: #cbd5e1;">+971 58 216 6143</a>
+                    </div>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fab fa-whatsapp" style="color: #25D366;"></i>
+                    <div>
+                        <strong>WhatsApp:</strong><br>
+                        <a href="https://wa.me/971582166143" target="_blank" rel="noopener" style="color: #25D366; font-weight: 500;">+971 58 216 6143</a>
                     </div>
                 </div>
                 <div class="footer-contact-item">
                     <i class="fas fa-envelope"></i>
                     <div>
                         <strong>Email:</strong><br>
-                        <a href="mailto:info@mhktechnicalservices.com" style="color: var(--color-primary); font-weight: 500;">info@mhktechnicalservices.com</a>
+                        <a href="mailto:Ummibangash@gmail.com" style="color: var(--color-primary); font-weight: 500;">Ummibangash@gmail.com</a>
                     </div>
                 </div>
                 <div class="footer-contact-item">

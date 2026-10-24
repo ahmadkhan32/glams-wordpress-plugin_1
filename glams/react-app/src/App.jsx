@@ -322,7 +322,13 @@ export default function App() {
     <>
       <div className="top-bar">
         <div className="container">
-          <span><i className="fas fa-phone" style={{ marginRight: 6 }} /> +971 4 123 4567 &nbsp;|&nbsp; <i className="fas fa-envelope" style={{ marginRight: 6 }} /> info@mhktechnicalservices.com</span>
+          <span>
+            <a href="tel:+971582166143" style={{ color: "inherit", textDecoration: "none" }}><i className="fas fa-phone" style={{ marginRight: 6 }} /> +971 58 216 6143</a>
+            &nbsp;|&nbsp;
+            <a href="https://wa.me/971582166143" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none" }}><i className="fab fa-whatsapp" style={{ marginRight: 6, color: "#25D366" }} /> WhatsApp</a>
+            &nbsp;|&nbsp;
+            <a href="mailto:Ummibangash@gmail.com" style={{ color: "inherit", textDecoration: "none" }}><i className="fas fa-envelope" style={{ marginRight: 6 }} /> Ummibangash@gmail.com</a>
+          </span>
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
             <div className="top-bar-links">
               <a onClick={() => navigate("license")}><i className="fas fa-file-alt" /> License Lookup</a>
@@ -974,9 +980,9 @@ export default function App() {
             <div className="contact-grid">
               <div className="contact-info">
                 <h2>We're Here to Help</h2>
-                <div className="contact-info-item"><div className="contact-info-icon"><i className="fas fa-map-marker-alt" /></div><div className="contact-info-text"><h4>Office Address</h4><p>Al Quoz Industrial Area 3<br />Dubai, United Arab Emirates<br />P.O. Box 123456</p></div></div>
-                <div className="contact-info-item"><div className="contact-info-icon"><i className="fas fa-phone" /></div><div className="contact-info-text"><h4>Phone & WhatsApp</h4><p>+971 4 123 4567<br />+971 50 987 6543 (WhatsApp)</p></div></div>
-                <div className="contact-info-item"><div className="contact-info-icon"><i className="fas fa-envelope" /></div><div className="contact-info-text"><h4>Email</h4><p>info@mhktechnicalservices.com<br />support@mhktechnicalservices.com</p></div></div>
+                <div className="contact-info-item"><div className="contact-info-icon"><i className="fas fa-map-marker-alt" /></div><div className="contact-info-text"><h4>Office Address</h4><p>Al tawar near qusais metro station<br />Dubai, United Arab Emirates</p></div></div>
+                <div className="contact-info-item"><div className="contact-info-icon"><i className="fab fa-whatsapp" style={{ color: "#25D366" }} /></div><div className="contact-info-text"><h4>Phone & WhatsApp</h4><p><a href="tel:+971582166143" style={{ color: "inherit", textDecoration: "none" }}>+971 58 216 6143</a><br /><a href="https://wa.me/971582166143" target="_blank" rel="noopener noreferrer" style={{ color: "#25D366", fontWeight: 600, textDecoration: "none" }}>+971 58 216 6143 (WhatsApp)</a></p></div></div>
+                <div className="contact-info-item"><div className="contact-info-icon"><i className="fas fa-envelope" /></div><div className="contact-info-text"><h4>Email</h4><p><a href="mailto:Ummibangash@gmail.com" style={{ color: "inherit", textDecoration: "none" }}>Ummibangash@gmail.com</a></p></div></div>
                 <div className="contact-info-item"><div className="contact-info-icon"><i className="fas fa-clock" /></div><div className="contact-info-text"><h4>Working Hours</h4><p>Mon–Fri: 8:00 AM – 6:00 PM<br />Sat: 9:00 AM – 2:00 PM<br />Emergency support: 24/7</p></div></div>
                 <div style={{ marginTop: 24 }}>
                   <h4 style={{ fontSize: 14, fontWeight: 700, marginBottom: 14 }}>Follow Us</h4>
@@ -984,7 +990,7 @@ export default function App() {
                     <div className="social-link" onClick={() => showToast("LinkedIn page opening")}><i className="fab fa-linkedin-in" /></div>
                     <div className="social-link" onClick={() => showToast("Instagram page opening")}><i className="fab fa-instagram" /></div>
                     <div className="social-link" onClick={() => showToast("Twitter page opening")}><i className="fab fa-twitter" /></div>
-                    <div className="social-link" onClick={() => showToast("WhatsApp opening")}><i className="fab fa-whatsapp" /></div>
+                    <a className="social-link" href="https://wa.me/971582166143" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp" style={{ textDecoration: "none", color: "inherit" }}><i className="fab fa-whatsapp" style={{ color: "#25D366" }} /></a>
                   </div>
                 </div>
               </div>
@@ -996,7 +1002,7 @@ export default function App() {
                 </div>
                 <div className="form-row">
                   <div className="form-group"><label>Email *</label><input type="email" placeholder="email@example.com" /></div>
-                  <div className="form-group"><label>Phone</label><input type="tel" placeholder="+971 50 000 0000" /></div>
+                  <div className="form-group"><label>Phone</label><input type="tel" placeholder="+971 58 216 6143" /></div>
                 </div>
                 <div className="form-group"><label>Service Required</label>
                   <select><option>Select a service...</option><option>Trade License Management</option><option>Immigration & Visa Services</option><option>Technical Services</option><option>Certificate Verification</option><option>Business Setup</option><option>Document Services</option><option>Other</option></select>
@@ -1022,7 +1028,7 @@ export default function App() {
                 <div className="social-link"><i className="fab fa-linkedin-in" /></div>
                 <div className="social-link"><i className="fab fa-instagram" /></div>
                 <div className="social-link"><i className="fab fa-twitter" /></div>
-                <div className="social-link"><i className="fab fa-whatsapp" /></div>
+                <a className="social-link" href="https://wa.me/971582166143" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp" style={{ textDecoration: "none", color: "inherit" }}><i className="fab fa-whatsapp" style={{ color: "#25D366" }} /></a>
               </div>
             </div>
             <div className="footer-col">
@@ -1048,10 +1054,11 @@ export default function App() {
             <div className="footer-col">
               <h4>Contact</h4>
               <ul>
-                <li><a>Al Quoz, Dubai, UAE</a></li>
-                <li><a>+971 4 123 4567</a></li>
-                <li><a href="mailto:info@mhktechnicalservices.com">info@mhktechnicalservices.com</a></li>
-                <li><a>Mon–Sat: 8AM–6PM</a></li>
+                <li><span style={{ color: "#cbd5e1" }}><i className="fas fa-map-marker-alt" style={{ marginRight: 6 }} /> Al tawar near qusais metro station, Dubai</span></li>
+                <li><a href="tel:+971582166143"><i className="fas fa-phone" style={{ marginRight: 6 }} /> +971 58 216 6143</a></li>
+                <li><a href="https://wa.me/971582166143" target="_blank" rel="noopener noreferrer" style={{ color: "#25D366" }}><i className="fab fa-whatsapp" style={{ marginRight: 6 }} /> +971 58 216 6143 (WhatsApp)</a></li>
+                <li><a href="mailto:Ummibangash@gmail.com"><i className="fas fa-envelope" style={{ marginRight: 6 }} /> Ummibangash@gmail.com</a></li>
+                <li><span>Mon–Sat: 8AM–6PM</span></li>
                 <li><a onClick={() => navigate("contact")}>Get Support</a></li>
               </ul>
             </div>
@@ -1071,6 +1078,18 @@ export default function App() {
         <i className="fas fa-check-circle" />
         <span id="toastMsg">{toast.message}</span>
       </div>
+
+      {/* Floating WhatsApp Quick Action Button */}
+      <a
+        href="https://wa.me/971582166143"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="floating-whatsapp-btn"
+        aria-label="Chat on WhatsApp"
+        title="Chat with us on WhatsApp (+971 58 216 6143)"
+      >
+        <i className="fab fa-whatsapp" />
+      </a>
     </>
   );
 }

@@ -48,15 +48,19 @@
                     <h4 class="mhk-footer-title">Contact Us</h4>
                     <div class="mhk-footer-contact-item">
                         <span>📍</span>
-                        <span><strong>Address:</strong> Prime Business Center, Dubai, United Arab Emirates</span>
+                        <span><strong>Address:</strong> Al tawar near qusais metro station, Dubai, United Arab Emirates</span>
                     </div>
                     <div class="mhk-footer-contact-item">
                         <span>📞</span>
-                        <span><strong>Phone:</strong> <a href="tel:+97141234567">+971 4 123 4567</a></span>
+                        <span><strong>Phone:</strong> <a href="tel:+971582166143">+971 58 216 6143</a></span>
+                    </div>
+                    <div class="mhk-footer-contact-item">
+                        <span>💬</span>
+                        <span><strong>WhatsApp:</strong> <a href="https://wa.me/971582166143" target="_blank" rel="noopener">+971 58 216 6143</a></span>
                     </div>
                     <div class="mhk-footer-contact-item">
                         <span>✉️</span>
-                        <span><strong>Email:</strong> <a href="mailto:info@mhktechnicalservices.com">info@mhktechnicalservices.com</a></span>
+                        <span><strong>Email:</strong> <a href="mailto:Ummibangash@gmail.com">Ummibangash@gmail.com</a></span>
                     </div>
                     <div class="mhk-footer-contact-item">
                         <span>🕒</span>
