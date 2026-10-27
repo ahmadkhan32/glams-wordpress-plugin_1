@@ -1,4 +1,4 @@
-# GLAMS – MHK Technical Services WordPress Theme (v2.0.0)
+# GLAMS – MHK Technical Services WordPress Theme (v2.1.0)
 
 **A Premier, Production-Ready UAE Technical Contracting & License Activities Portal Theme**  
 Designed and built to match the deployed React application: [https://react-app-nu-one-90.vercel.app/](https://react-app-nu-one-90.vercel.app/)
@@ -12,7 +12,17 @@ Designed and built to match the deployed React application: [https://react-app-n
    - Clean, modern typography via Google Fonts (`Inter` + `Noto Naskh Arabic`).
    - FontAwesome 6 icons included.
 
-2. **11 Official UAE Technical Services**:
+2. **Full React 18 SPA Engine & SSR Dual Architecture**:
+   - Bundled with [glams-react.js](assets/js/glams-react.js) which mounts into `#glams-root`.
+   - Complete Server-Side Rendered (SSR) semantic fallback ensures instantaneous first paint and 100% Google SEO indexing.
+   - Intelligent `body.glams-react-active` observer prevents duplicate headers/footers.
+
+3. **Appearance Menu & Admin Dashboard Integration**:
+   - **Appearance → GLAMS Theme**: Dedicated theme options page with one-click menu generation and business info management.
+   - **Appearance → Menus**: Pre-registers `Primary Navigation`, `Footer Navigation`, and `Legal Links Menu`. Auto-creates and assigns all 7 primary links upon activation.
+   - **Appearance → Customize**: Live preview Customizer for real-time contact, WhatsApp, and hero text updates.
+
+4. **11 Official UAE Technical Services**:
    - Air-Conditioning, Ventilation & Air Filtration Systems (تركيب انظمة التكييف والتهوية وتنقية الهواء وصيانتها)
    - Electromechanical Equipment Installation & Maintenance (اعمال تركيب المعدات الكهروميكانيكية وصيانتها)
    - Floor & Wall Tiling Works (أعمال تبليط الأرضيات والجدران)
@@ -25,24 +35,24 @@ Designed and built to match the deployed React application: [https://react-app-n
    - Plaster Works (اعمال البلاستر)
    - Building Cleaning Services (خدمات تنظيف المباني والمساكن)
 
-3. **Digital License Activities Certificate (GLAMS)**:
+5. **Digital License Activities Certificate (GLAMS)**:
    - Instant search filter by English or Arabic activity name.
    - Print-ready official Dubai DET government layout (`window.print()`).
    - Copy License number button with toast feedback.
    - Encrypted QR code electronic attestation seal.
 
-4. **UAE Visa & Immigration Portal**:
+6. **UAE Visa & Immigration Portal**:
    - Golden Visa (10 Years), Employment Work Visa, Investor Visa, Family Residence, Tourist Visa, Student Visa.
    - 4-Step residency application process roadmap.
 
-5. **Direct Client Conversion Tools**:
+7. **Direct Client Conversion Tools**:
    - AJAX Quote Request Form with instant response banner.
-   - Floating WhatsApp button with pre-filled inquiry text.
+   - Floating WhatsApp button with pre-filled inquiry text (`+971 58 216 6143`).
    - Mobile slide-in navigation drawer with backdrop.
    - Sticky header and back-to-top button.
    - Interactive FAQ accordion.
 
-6. **100% Responsive & Cross-Browser Tested**:
+8. **100% Responsive & Cross-Browser Tested**:
    - Small Mobile (320px – 479px)
    - Large Mobile (480px – 767px)
    - Tablet (768px – 1024px)
@@ -59,6 +69,7 @@ Designed and built to match the deployed React application: [https://react-app-n
 3. Click **Add New Theme**, then click **Upload Theme**.
 4. Choose `glams-theme.zip` from your computer and click **Install Now**.
 5. Once uploaded, click **Activate**.
+6. Navigate to **Appearance > GLAMS Theme** to configure options, or **Appearance > Menus** to view the auto-generated menu.
 
 ### Option B: Manual FTP / Directory Installation
 1. Extract `glams-theme.zip` into `wp-content/themes/` so the path becomes `wp-content/themes/glams-theme/`.
@@ -67,21 +78,18 @@ Designed and built to match the deployed React application: [https://react-app-n
 
 ---
 
-## ⚙️ Recommended Initial Settings
+## ⚙️ Appearance & Menu Settings
 
-1. **Set Up Static Front Page**:
-   - Go to **Settings > Reading**.
-   - Under **Your homepage displays**, select **A static page**.
-   - Choose your Home page for **Homepage**.
+1. **Appearance → GLAMS Theme (New in v2.1.0)**:
+   - Configure Phone (`+971 58 216 6143`), WhatsApp (`971582166143`), Email (`Ummibangash@gmail.com`), License (`DET-2024-001234`), and Address.
+   - One-click buttons to auto-generate the Primary Navigation menu and standard pages.
 
-2. **Configure Navigation Menu**:
-   - Go to **Appearance > Menus**.
-   - Create a primary menu and assign it to the **Primary Navigation** location.
-   - You can also link directly to sections using `#services`, `#license`, `#immigration`, `#why-us`, `#process`, `#faq`, `#contact`.
+2. **Appearance → Menus**:
+   - The theme automatically registers and assigns the **GLAMS Primary Navigation** menu.
+   - You can reorder, add, or customize links matching `https://react-app-nu-one-90.vercel.app/`.
 
-3. **Customize Business Details**:
-   - Go to **Appearance > Customize > GLAMS – Contact & Business Info**.
-   - Set your **Phone Number**, **WhatsApp Number**, **Official Email**, **DET License Number**, and **Physical Office Address**.
+3. **Appearance → Customize**:
+   - Go to **Appearance > Customize > GLAMS – Contact & Business Info** for live customizer controls.
 
 ---
 

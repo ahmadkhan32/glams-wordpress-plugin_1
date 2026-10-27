@@ -26,6 +26,7 @@ if ( ! function_exists( 'glams_theme_setup' ) ) :
         add_image_size( 'glams-avatar', 120, 120, true );
 
         // Navigation Menus
+        add_theme_support( 'menus' );
         register_nav_menus( [
             'primary' => __( 'Primary Navigation', 'glams-theme' ),
             'footer'  => __( 'Footer Navigation', 'glams-theme' ),
@@ -102,3 +103,17 @@ function glams_content_width() {
     $GLOBALS['content_width'] = apply_filters( 'glams_content_width', 1240 );
 }
 add_action( 'after_setup_theme', 'glams_content_width', 0 );
+
+/**
+ * Automatically ensure the primary menu exists upon admin initialization if not yet assigned
+ */
+function glams_ensure_default_menu_on_admin() {
+    if ( is_admin() && current_user_can( 'edit_theme_options' ) && function_exists( 'glams_auto_create_default_menu' ) ) {
+        $locations = get_theme_mod( 'nav_menu_locations' );
+        if ( empty( $locations['primary'] ) ) {
+            glams_auto_create_default_menu( false );
+        }
+    }
+}
+add_action( 'admin_init', 'glams_ensure_default_menu_on_admin' );
+
