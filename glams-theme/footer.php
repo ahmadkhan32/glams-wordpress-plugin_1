@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$whatsapp = get_theme_mod( 'glams_whatsapp', '+971 50 123 4567' );
+$whatsapp = get_theme_mod( 'glams_whatsapp', '971582166143' );
 $clean_wa = preg_replace( '/[^0-9]/', '', $whatsapp );
 ?>
   </main><!-- #primary-content -->

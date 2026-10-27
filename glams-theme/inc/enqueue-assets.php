@@ -48,10 +48,12 @@ function glams_enqueue_scripts() {
         'nonce'       => wp_create_nonce( 'glams_theme_nonce' ),
         'siteUrl'     => esc_url( home_url( '/' ) ),
         'themeUrl'    => esc_url( GLAMS_THEME_URI ),
-        'phone'       => get_theme_mod( 'glams_phone', '+971 4 123 4567' ),
-        'whatsapp'    => get_theme_mod( 'glams_whatsapp', '+971 50 123 4567' ),
-        'email'       => get_theme_mod( 'glams_email', 'info@mhktechnicalservices.com' ),
+        'logoUrl'     => esc_url( GLAMS_THEME_URI . '/assets/images/mhk-technical-services-logo.png' ),
+        'phone'       => get_theme_mod( 'glams_phone', '+971 58 216 6143' ),
+        'whatsapp'    => get_theme_mod( 'glams_whatsapp', '971582166143' ),
+        'email'       => get_theme_mod( 'glams_email', 'Ummibangash@gmail.com' ),
         'licenseNo'   => get_theme_mod( 'glams_license_no', 'DET-2024-001234' ),
+        'address'     => get_theme_mod( 'glams_address', 'Al tawar near qusais metro station, Dubai, United Arab Emirates' ),
         'strings'     => [
             'copySuccess'   => __( 'License number copied to clipboard!', 'glams-theme' ),
             'formSuccess'   => __( 'Thank you! Your quote request has been sent successfully.', 'glams-theme' ),
@@ -60,12 +62,34 @@ function glams_enqueue_scripts() {
         ],
     ] );
 
+    // Enqueue React SPA Bundle (matches https://react-app-nu-one-90.vercel.app/)
+    if ( file_exists( GLAMS_THEME_DIR . '/assets/js/glams-react.js' ) ) {
+        wp_enqueue_script(
+            'glams-react',
+            GLAMS_THEME_URI . '/assets/js/glams-react.js',
+            [],
+            GLAMS_THEME_VERSION,
+            true
+        );
+    }
+
     // Enable threaded comments on singular posts
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );
     }
 }
 add_action( 'wp_enqueue_scripts', 'glams_enqueue_scripts' );
+
+/**
+ * Filter script tag to load React bundle as ES Module
+ */
+function glams_script_loader_tag( $tag, $handle, $src ) {
+    if ( 'glams-react' === $handle ) {
+        return '<script type="module" crossorigin src="' . esc_url( $src ) . '"></script>' . "\n";
+    }
+    return $tag;
+}
+add_filter( 'script_loader_tag', 'glams_script_loader_tag', 10, 3 );
 
 /**
  * Add preconnect tags for performance optimization

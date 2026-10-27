@@ -27,8 +27,10 @@ function glams_get_theme_logo( $location = 'header', $variant = 'auto' ) {
     }
 
     if ( empty( $logo_url ) ) {
-        if ( $variant === 'white' ) {
+        if ( $variant === 'white' && file_exists( GLAMS_THEME_DIR . '/assets/images/logo-white.svg' ) ) {
             $logo_url = GLAMS_THEME_URI . '/assets/images/logo-white.svg';
+        } elseif ( file_exists( GLAMS_THEME_DIR . '/assets/images/mhk-technical-services-logo.png' ) ) {
+            $logo_url = GLAMS_THEME_URI . '/assets/images/mhk-technical-services-logo.png';
         } else {
             $logo_url = GLAMS_THEME_URI . '/assets/images/logo.svg';
         }

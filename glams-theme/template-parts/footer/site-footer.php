@@ -7,11 +7,11 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$phone     = get_theme_mod( 'glams_phone', '+971 4 123 4567' );
-$email     = get_theme_mod( 'glams_email', 'info@mhktechnicalservices.com' );
+$phone     = get_theme_mod( 'glams_phone', '+971 58 216 6143' );
+$email     = get_theme_mod( 'glams_email', 'Ummibangash@gmail.com' );
 $license   = get_theme_mod( 'glams_license_no', 'DET-2024-001234' );
-$address   = get_theme_mod( 'glams_address', 'Al Tawar Center, Near Al Qusais Metro Station, Dubai, UAE' );
-$hours     = get_theme_mod( 'glams_hours', 'Mon – Sat: 8:00 AM – 8:00 PM' );
+$address   = get_theme_mod( 'glams_address', 'Al tawar near qusais metro station, Dubai, United Arab Emirates' );
+$hours     = get_theme_mod( 'glams_hours', 'Mon – Sat: 8:00 AM – 8:00 PM | Sun: Emergency Support' );
 $clean_tel = preg_replace( '/[^0-9+]/', '', $phone );
 $home_url  = esc_url( home_url( '/' ) );
 ?>

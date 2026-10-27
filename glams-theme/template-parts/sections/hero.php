@@ -11,7 +11,7 @@ $badge    = get_theme_mod( 'glams_hero_badge', 'UAE Licensed Technical Contracto
 $title    = get_theme_mod( 'glams_hero_title', 'Premier Technical & Maintenance Solutions in UAE' );
 $subtitle = get_theme_mod( 'glams_hero_subtitle', 'Comprehensive engineering, electromechanical, HVAC, and government compliance services backed by full regulatory licensing.' );
 $license  = get_theme_mod( 'glams_license_no', 'DET-2024-001234' );
-$whatsapp = get_theme_mod( 'glams_whatsapp', '+971 50 123 4567' );
+$whatsapp = get_theme_mod( 'glams_whatsapp', '971582166143' );
 $clean_wa = preg_replace( '/[^0-9]/', '', $whatsapp );
 ?>
 

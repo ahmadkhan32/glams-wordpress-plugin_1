@@ -24,6 +24,8 @@
     initContactForm();
     initBackToTop();
     initToast();
+    initReactMountObserver();
+    initLogoFallback();
   });
 
   // ── 2. Header & Sticky Nav ───────────────────────────────────────────
@@ -300,6 +302,41 @@
     setTimeout(function () {
       toast.classList.remove('is-active');
     }, 3200);
+  }
+
+  // ── 10. React Mount Observer ─────────────────────────────────────────
+  function initReactMountObserver() {
+    var root = document.getElementById('glams-root');
+    if (!root) return;
+
+    function checkActive() {
+      if (root.querySelector('.top-bar, .navbar, .site-footer')) {
+        document.body.classList.add('glams-react-active');
+        return true;
+      }
+      return false;
+    }
+
+    if (!checkActive()) {
+      var observer = new MutationObserver(function () {
+        if (checkActive()) {
+          observer.disconnect();
+        }
+      });
+      observer.observe(root, { childList: true, subtree: true });
+    }
+  }
+
+  // ── 11. Logo Image Fallback ──────────────────────────────────────────
+  function initLogoFallback() {
+    document.addEventListener('error', function (e) {
+      if (e.target && e.target.tagName === 'IMG' && e.target.getAttribute('src') === '/mhk-technical-services-logo.png') {
+        var fallback = (window.glamsData && window.glamsData.logoUrl) ? window.glamsData.logoUrl : '';
+        if (fallback) {
+          e.target.src = fallback;
+        }
+      }
+    }, true);
   }
 
   window.glamsShowToast = showToast;

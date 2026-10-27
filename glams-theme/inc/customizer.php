@@ -16,7 +16,7 @@ function glams_customize_register( $wp_customize ) {
 
     // Phone Number
     $wp_customize->add_setting( 'glams_phone', [
-        'default'           => '+971 4 123 4567',
+        'default'           => '+971 58 216 6143',
         'sanitize_callback' => 'sanitize_text_field',
     ] );
     $wp_customize->add_control( 'glams_phone', [
@@ -27,7 +27,7 @@ function glams_customize_register( $wp_customize ) {
 
     // WhatsApp Number
     $wp_customize->add_setting( 'glams_whatsapp', [
-        'default'           => '+971 50 123 4567',
+        'default'           => '971582166143',
         'sanitize_callback' => 'sanitize_text_field',
     ] );
     $wp_customize->add_control( 'glams_whatsapp', [
@@ -38,7 +38,7 @@ function glams_customize_register( $wp_customize ) {
 
     // Email Address
     $wp_customize->add_setting( 'glams_email', [
-        'default'           => 'info@mhktechnicalservices.com',
+        'default'           => 'Ummibangash@gmail.com',
         'sanitize_callback' => 'sanitize_email',
     ] );
     $wp_customize->add_control( 'glams_email', [
@@ -60,7 +60,7 @@ function glams_customize_register( $wp_customize ) {
 
     // Physical Address
     $wp_customize->add_setting( 'glams_address', [
-        'default'           => 'Al Tawar Center, Near Al Qusais Metro Station, Dubai, United Arab Emirates',
+        'default'           => 'Al tawar near qusais metro station, Dubai, United Arab Emirates',
         'sanitize_callback' => 'sanitize_textarea_field',
     ] );
     $wp_customize->add_control( 'glams_address', [
@@ -71,7 +71,7 @@ function glams_customize_register( $wp_customize ) {
 
     // Working Hours
     $wp_customize->add_setting( 'glams_hours', [
-        'default'           => 'Mon – Sat: 8:00 AM – 8:00 PM',
+        'default'           => 'Mon – Sat: 8:00 AM – 8:00 PM | Sun: Emergency Support',
         'sanitize_callback' => 'sanitize_text_field',
     ] );
     $wp_customize->add_control( 'glams_hours', [
