@@ -134,3 +134,4 @@ function glams_get_pricing_config() {
         ],
     ];
 }
+

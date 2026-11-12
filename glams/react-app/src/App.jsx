@@ -893,9 +893,62 @@ export default function App() {
           </div>
         </section>
 
-        {/* ── 2026 FLYER RATE LIST & CLEANING SERVICES ── */}
-        <section className="section" style={{ background: "#F8FAFC", paddingTop: 40, paddingBottom: 20 }}>
+        {/* ── 1. OUR TECHNICAL SERVICES ── */}
+        <section className="section svc-grid-section" id="our-technical-services" aria-label="Our Technical Services">
           <div className="container">
+            <div className="section-head text-center">
+              <div className="section-tag">Our Services</div>
+              <h2 className="section-title">Our Technical Services</h2>
+              <p className="section-desc">We provide a wide range of technical, maintenance, installation and building services for residential and commercial requirements.</p>
+              <div className="divider" />
+            </div>
+            <div className="svc-cards-grid" role="list">
+              {officialServices.map((svc) => {
+                const isOpen = expandedService === svc.id;
+                return (
+                  <article key={svc.id} id={`service-${svc.id}`} className={`svc-card${isOpen ? " svc-card--open" : ""}`} role="listitem">
+                    <div className="svc-card-top">
+                      <div className="svc-card-icon" aria-hidden="true"><i className={`fas ${svc.icon}`} /></div>
+                      <h3 className="svc-card-title">{svc.title}</h3>
+                      <p className="svc-card-desc">{svc.shortDescription}</p>
+                    </div>
+                    <button
+                      className="svc-view-btn"
+                      aria-expanded={isOpen}
+                      aria-controls={`svc-details-${svc.id}`}
+                      onClick={() => setExpandedService(isOpen ? null : svc.id)}
+                    >
+                      {isOpen ? "Hide Details" : "View Details"} <i className={`fas fa-chevron-${isOpen ? "up" : "down"}`} />
+                    </button>
+                    {isOpen && (
+                      <div className="svc-details" id={`svc-details-${svc.id}`} role="region" aria-label={`${svc.title} details`}>
+                        <ul className="svc-features-list">
+                          {svc.features.map((f) => (
+                            <li key={f}><i className="fas fa-check-circle" aria-hidden="true" /> {f}</li>
+                          ))}
+                        </ul>
+                        <button className="btn btn-primary btn-sm svc-enquire-btn" onClick={() => navigate("contact")}>
+                          <i className="fas fa-envelope" /> Enquire About This Service
+                        </button>
+                      </div>
+                    )}
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* ── 2. FLYER RATES • AED — OUR CLEANING SERVICES & PRICING ── */}
+        <section className="section" style={{ background: "#F8FAFC", paddingTop: 40, paddingBottom: 40 }}>
+          <div className="container">
+            <div className="section-head text-center" style={{ marginBottom: 28 }}>
+              <div className="section-tag">Flyer Rates • AED</div>
+              <h2 className="section-title">Our Cleaning Services &amp; Pricing</h2>
+              <p className="section-desc">Selected service rates from our official 2026 Rate List for Dubai apartments, villas, and commercial offices.</p>
+              <div className="divider" />
+            </div>
+
             <div className="mhk-rate-hero-card" id="rate-list-2026">
               <div className="mhk-rate-badge">
                 <i className="fas fa-sparkles" style={{ marginRight: 6 }} />
@@ -926,13 +979,6 @@ export default function App() {
                   <i className="fab fa-whatsapp" /> Call / WhatsApp Now: +971 582166143
                 </a>
               </div>
-            </div>
-
-            <div className="section-head text-center" style={{ marginTop: 40, marginBottom: 24 }}>
-              <div className="section-tag">Flyer Rates • AED</div>
-              <h2 className="section-title">Our Cleaning Services &amp; Pricing</h2>
-              <p className="section-desc">Selected service rates from our official 2026 Rate List for Dubai apartments, villas, and commercial offices.</p>
-              <div className="divider" />
             </div>
 
             <div className="mhk-pricing-cards-grid">
@@ -976,52 +1022,6 @@ export default function App() {
                         <i className="fab fa-whatsapp" /> Request Booking
                       </a>
                     </div>
-                  </article>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* ── OUR TECHNICAL SERVICES ── */}
-        <section className="section svc-grid-section" id="our-technical-services" aria-label="Our Technical Services">
-          <div className="container">
-            <div className="section-head">
-              <div className="section-tag">Our Services</div>
-              <h2 className="section-title">Our Technical Services</h2>
-              <p className="section-desc">We provide a wide range of technical, maintenance, installation and building services for residential and commercial requirements.</p>
-              <div className="divider" />
-            </div>
-            <div className="svc-cards-grid" role="list">
-              {officialServices.map((svc) => {
-                const isOpen = expandedService === svc.id;
-                return (
-                  <article key={svc.id} id={`service-${svc.id}`} className={`svc-card${isOpen ? " svc-card--open" : ""}`} role="listitem">
-                    <div className="svc-card-top">
-                      <div className="svc-card-icon" aria-hidden="true"><i className={`fas ${svc.icon}`} /></div>
-                      <h3 className="svc-card-title">{svc.title}</h3>
-                      <p className="svc-card-desc">{svc.shortDescription}</p>
-                    </div>
-                    <button
-                      className="svc-view-btn"
-                      aria-expanded={isOpen}
-                      aria-controls={`svc-details-${svc.id}`}
-                      onClick={() => setExpandedService(isOpen ? null : svc.id)}
-                    >
-                      {isOpen ? "Hide Details" : "View Details"} <i className={`fas fa-chevron-${isOpen ? "up" : "down"}`} />
-                    </button>
-                    {isOpen && (
-                      <div className="svc-details" id={`svc-details-${svc.id}`} role="region" aria-label={`${svc.title} details`}>
-                        <ul className="svc-features-list">
-                          {svc.features.map((f) => (
-                            <li key={f}><i className="fas fa-check-circle" aria-hidden="true" /> {f}</li>
-                          ))}
-                        </ul>
-                        <button className="btn btn-primary btn-sm svc-enquire-btn" onClick={() => navigate("contact")}>
-                          <i className="fas fa-envelope" /> Enquire About This Service
-                        </button>
-                      </div>
-                    )}
                   </article>
                 );
               })}
