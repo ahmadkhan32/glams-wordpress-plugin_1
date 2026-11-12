@@ -77,12 +77,28 @@
     if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
     if (overlay) overlay.addEventListener('click', closeDrawer);
 
-    // Close drawer when any anchor link is clicked
+    // Mobile drawer accordion for dropdown menus
+    var drawerDropdownParents = drawer.querySelectorAll('.menu-item-has-children, .glams-has-dropdown');
+    drawerDropdownParents.forEach(function (parentLi) {
+      var parentLink = parentLi.querySelector(':scope > a');
+      if (parentLink) {
+        parentLink.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          parentLi.classList.toggle('is-open');
+        });
+      }
+    });
+
+    // Close drawer when any leaf anchor link is clicked
     var drawerLinks = drawer.querySelectorAll('a');
     drawerLinks.forEach(function (link) {
-      link.addEventListener('click', function () {
-        closeDrawer();
-      });
+      var isParent = link.parentElement && (link.parentElement.classList.contains('menu-item-has-children') || link.parentElement.classList.contains('glams-has-dropdown'));
+      if (!isParent) {
+        link.addEventListener('click', function () {
+          closeDrawer();
+        });
+      }
     });
   }
 

@@ -397,14 +397,56 @@ function glams_get_faqs() {
 }
 
 /**
- * Fallback Navigation Menus
+ * Official Cleaning Services (from 2026 Flyer Rate List)
+ */
+function glams_get_cleaning_services() {
+    if ( function_exists( 'glams_get_pricing_config' ) ) {
+        $cfg = glams_get_pricing_config();
+        return $cfg['categories'];
+    }
+    return [];
+}
+
+/**
+ * Fallback Navigation Menus with Interactive Services Dropdown
  */
 function glams_fallback_primary_menu() {
     $home = esc_url( home_url( '/' ) );
+    $cleaning = glams_get_cleaning_services();
+
     echo '<ul id="primary-menu" class="glams-nav-list">';
     echo '<li class="nav-item"><a href="' . $home . '">Home</a></li>';
-    echo '<li class="nav-item"><a href="' . $home . '#services">Services</a></li>';
-    echo '<li class="nav-item"><a href="' . $home . '#license">License Activities</a></li>';
+
+    // Services with rich dropdown
+    echo '<li class="nav-item menu-item-has-children glams-has-dropdown">';
+    echo '<a href="' . $home . '#services" class="glams-dropdown-toggle">Services <i class="fa-solid fa-chevron-down glams-dropdown-arrow" aria-hidden="true"></i></a>';
+    echo '<ul class="sub-menu glams-dropdown-menu" role="menu">';
+
+    foreach ( $cleaning as $cat ) {
+        $icon     = esc_attr( $cat['icon'] );
+        $title    = esc_html( $cat['title'] );
+        $starting = esc_html( $cat['starting'] );
+        $url      = $home . '#service-' . esc_attr( $cat['id'] );
+        echo '<li class="menu-item" role="none">';
+        echo '<a href="' . $url . '" role="menuitem">';
+        echo '<span class="glams-menu-item-left"><i class="' . $icon . '"></i> ' . $title . '</span>';
+        echo '<span class="glams-menu-price">' . $starting . '</span>';
+        echo '</a>';
+        echo '</li>';
+    }
+
+    echo '<li class="glams-menu-divider" role="separator"></li>';
+    echo '<li class="menu-item glams-view-all-item" role="none">';
+    echo '<a href="' . $home . '#services" class="glams-view-all-services" role="menuitem">';
+    echo '<span><i class="fa-solid fa-wand-magic-sparkles"></i> View All Services &amp; 2026 Rates</span>';
+    echo '<i class="fa-solid fa-arrow-right"></i>';
+    echo '</a>';
+    echo '</li>';
+    echo '</ul>';
+    echo '</li>';
+
+    echo '<li class="nav-item"><a href="' . $home . '#license">DET License</a></li>';
+    echo '<li class="nav-item"><a href="' . $home . '#companies">Companies</a></li>';
     echo '<li class="nav-item"><a href="' . $home . '#immigration">Immigration</a></li>';
     echo '<li class="nav-item"><a href="' . $home . '#about">About Us</a></li>';
     echo '<li class="nav-item"><a href="' . $home . '#faq">FAQ</a></li>';
@@ -416,7 +458,7 @@ function glams_fallback_footer_menu() {
     $home = esc_url( home_url( '/' ) );
     echo '<ul class="glams-footer-links">';
     echo '<li><a href="' . $home . '">Home</a></li>';
-    echo '<li><a href="' . $home . '#services">All Services</a></li>';
+    echo '<li><a href="' . $home . '#services">All Services &amp; 2026 Rates</a></li>';
     echo '<li><a href="' . $home . '#license">License Verification</a></li>';
     echo '<li><a href="' . $home . '#immigration">UAE Visa Support</a></li>';
     echo '<li><a href="' . $home . '#about">About MHK</a></li>';

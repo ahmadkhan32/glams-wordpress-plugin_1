@@ -1,8 +1,101 @@
 /**
- * MHK Technical Services – Official Services Data
- * Source: MHK TECHNICAL SERVICES L.L.C — UAE Commercial License
- * 11 active licensed technical activities
+ * MHK Technical Services – Official Services & Rate List 2026 Data
+ * Source: MHK TECHNICAL SERVICES L.L.C — UAE Commercial License & Official 2026 Rate Flyer
  */
+
+export const cleaningServices2026 = [
+  {
+    id: "home-cleaning",
+    title: "Home Cleaning",
+    titleAr: "تنظيف المنازل والشقق",
+    icon: "fa-house",
+    shortDescription: "Complete routine and deep home cleaning for apartments across Dubai.",
+    startingPrice: "120 AED",
+    items: [
+      { name: "Studio Apartment", price: 120, unit: "" },
+      { name: "1 Bedroom Apartment", price: 180, unit: "" },
+      { name: "2 Bedroom Apartment", price: 250, unit: "" },
+      { name: "3 Bedroom Apartment", price: 350, unit: "" },
+    ],
+  },
+  {
+    id: "villa-cleaning",
+    title: "Villa Cleaning",
+    titleAr: "تنظيف الفلل والقصور",
+    icon: "fa-hotel",
+    shortDescription: "Professional cleaning teams for small, medium, and large luxury villas.",
+    startingPrice: "450 AED",
+    items: [
+      { name: "Small Villa", price: 450, unit: "" },
+      { name: "Medium Villa", price: 650, unit: "" },
+      { name: "Large Villa", price: 900, suffix: "+", unit: "" },
+    ],
+  },
+  {
+    id: "deep-cleaning",
+    title: "Deep Cleaning",
+    titleAr: "التنظيف العميق والشامل",
+    icon: "fa-spray-can-sparkles",
+    shortDescription: "Detailed sanitization, grout cleaning, kitchen & bathroom disinfection.",
+    startingPrice: "250 AED",
+    items: [
+      { name: "Studio Deep Cleaning", price: 250, unit: "" },
+      { name: "1 BHK Deep Cleaning", price: 400, unit: "" },
+      { name: "2 BHK Deep Cleaning", price: 600, unit: "" },
+      { name: "Villa Deep Cleaning", price: 1200, prefix: "Starting", unit: "" },
+    ],
+  },
+  {
+    id: "sofa-carpet-cleaning",
+    title: "Sofa & Carpet Cleaning",
+    titleAr: "تنظيف الكنب والسجاد والفرش",
+    icon: "fa-couch",
+    shortDescription: "Shampooing, steam cleaning, stain extraction and mattress deodorizing.",
+    startingPrice: "40 AED",
+    items: [
+      { name: "Sofa Cleaning", price: 40, unit: "per seat" },
+      { name: "Carpet Cleaning", price: 15, unit: "per sqm" },
+      { name: "Mattress Cleaning", price: 80, unit: "" },
+    ],
+  },
+  {
+    id: "kitchen-cleaning",
+    title: "Kitchen Cleaning",
+    titleAr: "تنظيف المطابخ وإزالة الدهون",
+    icon: "fa-utensils",
+    shortDescription: "Commercial and residential kitchen degreasing, hood and cabinet cleaning.",
+    startingPrice: "150 AED",
+    items: [
+      { name: "Normal Kitchen Cleaning", price: 150, unit: "" },
+      { name: "Kitchen Deep Cleaning", price: 350, unit: "" },
+      { name: "Hood Cleaning", price: 500, prefix: "Starting", unit: "" },
+    ],
+  },
+  {
+    id: "office-cleaning",
+    title: "Office Cleaning",
+    titleAr: "تنظيف المكاتب والشركات",
+    icon: "fa-building",
+    shortDescription: "Flexible hourly office cleaning visits and customized monthly contracts.",
+    startingPrice: "25 AED/hr",
+    items: [
+      { name: "Hourly Cleaning", price: 25, unit: "per hour" },
+      { name: "Monthly Contract", price: 999, prefix: "Starting", unit: "" },
+    ],
+  },
+  {
+    id: "maid-services",
+    title: "Maid Services",
+    titleAr: "خدمات العاملات بالساعة",
+    icon: "fa-user-check",
+    shortDescription: "Trained, vetted and professional maid assistance on hourly booking.",
+    startingPrice: "25 AED/hr",
+    items: [
+      { name: "1 Cleaner", price: 25, unit: "per hour" },
+      { name: "2 Cleaners", price: 45, unit: "per hour" },
+    ],
+  },
+];
 
 const services = [
   {

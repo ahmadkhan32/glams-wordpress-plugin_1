@@ -4208,3 +4208,393 @@ button, input, select, textarea { font-family: inherit; }
     size: A4 portrait;
   }
 }
+
+/* ═══════════════════════════════════════════════════════
+   MHK TECHNICAL SERVICES – 2026 RATE LIST & SERVICES DROPDOWN
+   ═══════════════════════════════════════════════════════ */
+
+/* Desktop Navigation Services Dropdown */
+.glams-nav-list li.menu-item-has-children,
+.glams-nav-list li.glams-has-dropdown {
+  position: relative;
+}
+
+.glams-dropdown-arrow {
+  margin-left: 6px;
+  font-size: 10px;
+  display: inline-block;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  color: inherit;
+}
+
+.glams-nav-list li.menu-item-has-children:hover > a .glams-dropdown-arrow,
+.glams-nav-list li.glams-has-dropdown:hover > a .glams-dropdown-arrow,
+.glams-nav-list li.is-open > a .glams-dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.glams-nav-list li.menu-item-has-children::after,
+.glams-nav-list li.glams-has-dropdown::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 14px;
+}
+
+.glams-nav-list .sub-menu,
+.glams-nav-list .glams-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 320px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 18px 45px rgba(7, 63, 155, 0.18), 0 4px 14px rgba(0, 0, 0, 0.06);
+  border: 1.5px solid #b8d9ff;
+  padding: 10px 0;
+  list-style: none;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+  z-index: 1050;
+}
+
+.glams-nav-list li.menu-item-has-children:hover > .sub-menu,
+.glams-nav-list li.glams-has-dropdown:hover > .sub-menu,
+.glams-nav-list li.is-open > .sub-menu,
+.glams-nav-list li.menu-item-has-children:focus-within > .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.glams-dropdown-menu li,
+.glams-nav-list .sub-menu li {
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+.glams-dropdown-menu li a,
+.glams-nav-list .sub-menu li a {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 18px;
+  color: #172033 !important;
+  font-size: 13.5px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+  border-radius: 6px;
+  margin: 0 6px;
+}
+
+.glams-dropdown-menu li a:hover,
+.glams-nav-list .sub-menu li a:hover {
+  background: #f0f6ff !important;
+  color: #073F9B !important;
+  transform: translateX(3px);
+}
+
+.glams-menu-item-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.glams-menu-item-left i {
+  color: #073F9B;
+  width: 18px;
+  text-align: center;
+  font-size: 13.5px;
+}
+
+.glams-menu-price {
+  background: #DCEFFF;
+  color: #073F9B;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.glams-menu-divider {
+  height: 1px;
+  background: #e5edf7;
+  margin: 6px 12px;
+}
+
+.glams-view-all-services {
+  background: #073F9B !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+  margin: 4px 10px 2px !important;
+  padding: 10px 14px !important;
+  font-weight: 700 !important;
+  font-size: 12.5px !important;
+  box-shadow: 0 4px 12px rgba(7, 63, 155, 0.2);
+  justify-content: space-between !important;
+}
+
+.glams-view-all-services:hover {
+  background: #0645B5 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Mobile Drawer Submenu */
+.glams-drawer-menu-list li.menu-item-has-children,
+.glams-drawer-menu-list li.glams-has-dropdown {
+  position: relative;
+  display: block;
+}
+
+.glams-drawer-menu-list .sub-menu,
+.glams-drawer-menu-list .glams-dropdown-menu {
+  display: none;
+  padding: 6px 0 6px 8px;
+  margin: 6px 0 10px;
+  border-left: 2px solid #b8d9ff;
+  background: #f4f9ff;
+  border-radius: 8px;
+  list-style: none;
+}
+
+.glams-drawer-menu-list li.is-open > .sub-menu {
+  display: block;
+}
+
+.glams-drawer-menu-list .sub-menu li a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #172033;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.glams-drawer-menu-list .sub-menu li a:hover {
+  background: #e2efff;
+  color: #073F9B;
+}
+
+/* 2026 Flyer Rate List Section */
+.mhk-rate-hero-card {
+  background: linear-gradient(135deg, #073F9B 0%, #0645B5 60%, #1475D4 100%);
+  color: #ffffff;
+  border-radius: 20px;
+  padding: 44px 36px;
+  box-shadow: 0 16px 45px rgba(7, 63, 155, 0.2);
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.mhk-rate-hero-card::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(212, 166, 74, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.mhk-rate-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(212, 166, 74, 0.25);
+  border: 1px solid rgba(212, 166, 74, 0.6);
+  color: #D4A64A;
+  padding: 6px 18px;
+  border-radius: 24px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.9px;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
+.mhk-rate-title {
+  color: #ffffff;
+  font-size: clamp(24px, 4vw, 38px);
+  font-weight: 800;
+  margin: 0 0 10px;
+  letter-spacing: -0.5px;
+}
+
+.mhk-rate-tagline {
+  color: #DCEFFF;
+  font-size: 16px;
+  margin: 0 auto 28px;
+  max-width: 650px;
+}
+
+.mhk-trust-badges-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  max-width: 900px;
+  margin: 0 auto 28px;
+}
+
+.mhk-trust-badge-item {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  padding: 14px 10px;
+  text-align: center;
+  color: #ffffff;
+  transition: transform 0.2s ease;
+}
+
+.mhk-trust-badge-item:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.mhk-trust-icon {
+  font-size: 24px;
+  color: #D4A64A;
+  margin-bottom: 6px;
+}
+
+.mhk-trust-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.mhk-rate-contact-cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.mhk-pricing-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+  margin-bottom: 40px;
+}
+
+.mhk-pricing-card {
+  background: #ffffff;
+  border: 1.5px solid #b8d9ff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 6px 24px rgba(7, 63, 155, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.mhk-pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 38px rgba(7, 63, 155, 0.14);
+  border-color: #073F9B;
+}
+
+.mhk-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.mhk-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #073F9B, #0645B5);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.mhk-card-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #073F9B;
+  margin: 0;
+}
+
+.mhk-card-title-ar {
+  font-size: 13px;
+  color: #64748B;
+  margin: 2px 0 0;
+}
+
+.mhk-card-short {
+  font-size: 13.5px;
+  color: #475569;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.mhk-price-list {
+  border-top: 1px solid #E2E8F0;
+  margin-bottom: 18px;
+}
+
+.mhk-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #F1F5F9;
+  font-size: 14px;
+}
+
+.mhk-item-name {
+  color: #172033;
+  font-weight: 500;
+}
+
+.mhk-item-price {
+  color: #0645B5;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.mhk-unit {
+  font-size: 11px;
+  color: #64748B;
+}
+
+@media (max-width: 768px) {
+  .mhk-trust-badges-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mhk-rate-hero-card {
+    padding: 30px 20px;
+  }
+
+  .mhk-pricing-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}

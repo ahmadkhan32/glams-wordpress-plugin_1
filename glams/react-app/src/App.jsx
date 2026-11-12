@@ -1,4 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
+import { cleaningServices2026 } from "./data/services.js";
+
+const HIGHLIGHTS_2026 = [
+  { icon: "fa-users", title: "Trained Staff", desc: "Vetted, certified and background-checked cleaners." },
+  { icon: "fa-shield-halved", title: "Quality Service", desc: "100% satisfaction guarantee on all service calls." },
+  { icon: "fa-spray-can-sparkles", title: "Safe Products", desc: "Eco-friendly, non-toxic hospital-grade sanitizers." },
+  { icon: "fa-clock", title: "On Time Service", desc: "Punctual arrival, reliable scheduling across UAE." },
+];
 
 const COMPANIES = [
   { id: 1, name: "Al Noor Technical Services LLC", nameAr: "شركة النور للخدمات التقنية", license: "DET-2024-001234", owner: "Mohammed Al Rashid", status: "active", city: "Dubai", phone: "+971 4 123 4567", expiry: "2025-01-14" },
@@ -208,6 +216,8 @@ export default function App() {
   const [language, setLanguage] = useState("en");
   const [toast, setToast] = useState({ show: false, message: "Success" });
   const [expandedService, setExpandedService] = useState(null);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   useEffect(() => {
     const handleLocationChange = () => {
@@ -353,9 +363,68 @@ export default function App() {
             </div>
           </div>
           <div className="nav-links">
+            <a onClick={() => navigate("home")} className={currentPage === "home" ? "active" : ""}>Home</a>
+
+            {/* Services with Hover/Click Dropdown */}
+            <div 
+              className={`nav-dropdown ${servicesDropdownOpen ? "open" : ""}`}
+              onMouseEnter={() => setServicesDropdownOpen(true)}
+              onMouseLeave={() => setServicesDropdownOpen(false)}
+            >
+              <a 
+                onClick={() => {
+                  navigate("services");
+                  setServicesDropdownOpen(false);
+                }}
+                className={`nav-dropdown-toggle ${currentPage === "services" ? "active" : ""}`}
+              >
+                <span>Services</span>
+                <i className={`fas fa-chevron-down nav-arrow ${servicesDropdownOpen ? "open" : ""}`} />
+              </a>
+
+              <div className={`nav-dropdown-menu ${servicesDropdownOpen ? "show" : ""}`}>
+                <div className="dropdown-menu-header">
+                  <span className="dropdown-tag">Rate List 2026 • Dubai UAE</span>
+                  <div className="dropdown-tagline">We Make Your Space Sparkling Clean</div>
+                </div>
+                <div className="dropdown-items-list">
+                  {cleaningServices2026.map((svc) => (
+                    <a
+                      key={svc.id}
+                      className="dropdown-item"
+                      onClick={() => {
+                        navigate("services");
+                        setServicesDropdownOpen(false);
+                        window.setTimeout(() => {
+                          const el = document.getElementById(`service-${svc.id}`);
+                          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }, 100);
+                      }}
+                    >
+                      <span className="dropdown-item-left">
+                        <i className={`fas ${svc.icon}`} />
+                        <span>{svc.title}</span>
+                      </span>
+                      <span className="dropdown-item-price">{svc.startingPrice}</span>
+                    </a>
+                  ))}
+                </div>
+                <div className="dropdown-menu-footer">
+                  <a
+                    className="dropdown-view-all"
+                    onClick={() => {
+                      navigate("services");
+                      setServicesDropdownOpen(false);
+                    }}
+                  >
+                    <span><i className="fas fa-sparkles" style={{ marginRight: 6 }} /> View All Services &amp; 2026 Rates</span>
+                    <i className="fas fa-arrow-right" />
+                  </a>
+                </div>
+              </div>
+            </div>
+
             {[
-              ["home", "Home"],
-              ["services", "Services"],
               ["license", "License Activities"],
               ["companies", "Companies"],
               ["immigration", "Immigration"],
@@ -383,7 +452,52 @@ export default function App() {
         <div className="mobile-nav-panel">
           <div className="mobile-nav-close"><button onClick={() => setMobileOpen(false)}><i className="fas fa-times" /></button></div>
           <div className="mobile-nav-links">
-            {["home", "services", "license", "companies", "immigration", "about", "contact"].map((page) => (
+            <a onClick={() => navigate("home")}>Home</a>
+
+            {/* Mobile Services Accordion */}
+            <div className={`mobile-dropdown ${mobileServicesOpen ? "open" : ""}`}>
+              <div 
+                className="mobile-dropdown-header"
+                onClick={() => setMobileServicesOpen((prev) => !prev)}
+              >
+                <span onClick={(e) => {
+                  e.stopPropagation();
+                  navigate("services");
+                }} style={{ cursor: "pointer", flex: 1, fontWeight: 500 }}>
+                  Services
+                </span>
+                <i className={`fas fa-chevron-down ${mobileServicesOpen ? "fa-rotate-180" : ""}`} style={{ fontSize: 12, padding: "4px 8px", cursor: "pointer", transition: "transform 0.2s" }} />
+              </div>
+
+              {mobileServicesOpen && (
+                <div className="mobile-dropdown-sub">
+                  {cleaningServices2026.map((svc) => (
+                    <a
+                      key={svc.id}
+                      className="mobile-dropdown-item"
+                      onClick={() => {
+                        navigate("services");
+                        window.setTimeout(() => {
+                          const el = document.getElementById(`service-${svc.id}`);
+                          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }, 100);
+                      }}
+                    >
+                      <span><i className={`fas ${svc.icon}`} style={{ marginRight: 8, color: "var(--primary)" }} />{svc.title}</span>
+                      <span className="dropdown-item-price">{svc.startingPrice}</span>
+                    </a>
+                  ))}
+                  <a
+                    onClick={() => navigate("services")}
+                    style={{ fontWeight: 700, color: "var(--primary)", padding: "8px 10px", fontSize: 13, cursor: "pointer" }}
+                  >
+                    View All Services &amp; 2026 Rates →
+                  </a>
+                </div>
+              )}
+            </div>
+
+            {["license", "companies", "immigration", "about", "contact"].map((page) => (
               <a key={page} onClick={() => navigate(page)}>{page === "license" ? "License Activities" : page.charAt(0).toUpperCase() + page.slice(1)}</a>
             ))}
           </div>
@@ -769,12 +883,102 @@ export default function App() {
           <div className="container svc-hero-inner">
             <div className="svc-hero-content">
               <div className="section-tag svc-tag-gold">MOHAMMAD HAYAT TECHNICAL SERVICES L.L.C</div>
-              <h1 className="svc-hero-h1">Professional Technical Services in the UAE</h1>
-              <p className="svc-hero-sub">Reliable technical, maintenance and building services delivered with professional workmanship and a customer-focused approach.</p>
+              <h1 className="svc-hero-h1">Professional Services &amp; 2026 Rate List</h1>
+              <p className="svc-hero-sub">Transparent AED pricing from our official 2026 rate flyer and complete UAE licensed technical contracting solutions in Dubai.</p>
               <div className="svc-hero-btns">
-                <button className="btn btn-primary btn-lg" onClick={() => navigate("contact")}><i className="fas fa-tools" /> Request a Service</button>
-                <button className="btn btn-outline btn-lg svc-hero-outline" onClick={() => navigate("contact")}><i className="fas fa-envelope" /> Contact Us</button>
+                <a href="https://wa.me/971582166143?text=Hello%20MHK%20Technical%20Services%2C%20I%20would%20like%20to%20inquire%20about%20your%20services" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg"><i className="fab fa-whatsapp" /> WhatsApp +971 582166143</a>
+                <button className="btn btn-outline btn-lg svc-hero-outline" onClick={() => navigate("contact")}><i className="fas fa-envelope" /> Request a Quote</button>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── 2026 FLYER RATE LIST & CLEANING SERVICES ── */}
+        <section className="section" style={{ background: "#F8FAFC", paddingTop: 40, paddingBottom: 20 }}>
+          <div className="container">
+            <div className="mhk-rate-hero-card" id="rate-list-2026">
+              <div className="mhk-rate-badge">
+                <i className="fas fa-sparkles" style={{ marginRight: 6 }} />
+                RATE LIST 2026 • DUBAI, UAE
+              </div>
+              <h2 className="mhk-rate-title">MHK Technical Services — Cleaning Division</h2>
+              <p className="mhk-rate-tagline">
+                <em>&ldquo;We Make Your Space Sparkling Clean&rdquo;</em> &mdash; Professional • Affordable • Trusted
+              </p>
+
+              <div className="mhk-trust-badges-grid">
+                {HIGHLIGHTS_2026.map((h) => (
+                  <div key={h.title} className="mhk-trust-badge-item">
+                    <div className="mhk-trust-icon"><i className={`fas ${h.icon}`} /></div>
+                    <div className="mhk-trust-label"><strong>{h.title}</strong></div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mhk-rate-contact-cta">
+                <a 
+                  href="https://wa.me/971582166143?text=Hello%20MHK%20Technical%20Services%2C%20I%20would%20like%20to%20inquire%20about%20cleaning%20services" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="btn btn-primary btn-lg"
+                  style={{ background: "#00843D", boxShadow: "0 6px 20px rgba(0,132,61,0.3)" }}
+                >
+                  <i className="fab fa-whatsapp" /> Call / WhatsApp Now: +971 582166143
+                </a>
+              </div>
+            </div>
+
+            <div className="section-head text-center" style={{ marginTop: 40, marginBottom: 24 }}>
+              <div className="section-tag">Flyer Rates • AED</div>
+              <h2 className="section-title">Our Cleaning Services &amp; Pricing</h2>
+              <p className="section-desc">Selected service rates from our official 2026 Rate List for Dubai apartments, villas, and commercial offices.</p>
+              <div className="divider" />
+            </div>
+
+            <div className="mhk-pricing-cards-grid">
+              {cleaningServices2026.map((cat) => {
+                const waText = encodeURIComponent(`Hello MHK Technical Services, I would like to book: ${cat.title}`);
+                return (
+                  <article key={cat.id} id={`service-${cat.id}`} className="mhk-pricing-card">
+                    <div>
+                      <div className="mhk-card-header">
+                        <div className="mhk-card-icon"><i className={`fas ${cat.icon}`} /></div>
+                        <div>
+                          <h3 className="mhk-card-title">{cat.title}</h3>
+                          <div className="mhk-card-title-ar">{cat.titleAr}</div>
+                        </div>
+                      </div>
+                      <p className="mhk-card-short">{cat.shortDescription}</p>
+
+                      <div className="mhk-price-list">
+                        {cat.items.map((item) => (
+                          <div key={item.name} className="mhk-price-row">
+                            <span className="mhk-item-name">{item.name}</span>
+                            <span className="mhk-item-price">
+                              {item.prefix && <small style={{ fontWeight: 400, color: "#64748B" }}>{item.prefix} </small>}
+                              <strong>{item.price} AED</strong>
+                              {item.suffix && <span>{item.suffix}</span>}
+                              {item.unit && <small className="mhk-unit"> / {item.unit}</small>}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div style={{ marginTop: 16 }}>
+                      <a
+                        href={`https://wa.me/971582166143?text=${waText}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-primary btn-sm"
+                        style={{ width: "100%", justifyContent: "center", background: "#00843D" }}
+                      >
+                        <i className="fab fa-whatsapp" /> Request Booking
+                      </a>
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           </div>
         </section>

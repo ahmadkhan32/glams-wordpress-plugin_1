@@ -13,6 +13,7 @@ define( 'GLAMS_THEME_DIR', get_template_directory() );
 define( 'GLAMS_THEME_URI', get_template_directory_uri() );
 
 // ── Core Includes ──────────────────────────────────────────────────────
+require_once GLAMS_THEME_DIR . '/inc/pricing.php';
 require_once GLAMS_THEME_DIR . '/inc/theme-setup.php';
 require_once GLAMS_THEME_DIR . '/inc/enqueue-assets.php';
 require_once GLAMS_THEME_DIR . '/inc/template-functions.php';
