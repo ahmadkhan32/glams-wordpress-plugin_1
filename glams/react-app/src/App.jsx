@@ -233,6 +233,20 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    if (window.location.hash) {
+      const hashId = window.location.hash.replace(/^#\/?/, "");
+      if (hashId) {
+        window.setTimeout(() => {
+          const el = document.getElementById(hashId);
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }, 150);
+      }
+    }
+  }, [currentPage]);
+
+  useEffect(() => {
     if (currentPage === "services") {
       document.title = "Technical Services in UAE | MHK Technical Services";
       let metaDesc = document.querySelector('meta[name="description"]');
@@ -878,7 +892,7 @@ export default function App() {
       <div className={`page ${currentPage === "services" ? "active" : ""}`} id="page-services">
 
         {/* ── HERO ── */}
-        <section className="svc-hero" aria-label="Services Hero">
+        <section className="svc-hero" id="services" aria-label="Services Hero">
           <div className="svc-hero-overlay" />
           <div className="container svc-hero-inner">
             <div className="svc-hero-content">
@@ -896,11 +910,11 @@ export default function App() {
         {/* ── 1. OUR TECHNICAL SERVICES ── */}
         <section className="section svc-grid-section" id="our-technical-services" aria-label="Our Technical Services">
           <div className="container">
-            <div className="section-head text-center">
-              <div className="section-tag">Our Services</div>
-              <h2 className="section-title">Our Technical Services</h2>
-              <p className="section-desc">We provide a wide range of technical, maintenance, installation and building services for residential and commercial requirements.</p>
-              <div className="divider" />
+            <div className="section-head text-center" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", margin: "0 auto 40px", maxWidth: 780 }}>
+              <div className="section-tag" style={{ margin: "0 auto 12px" }}>Our Services</div>
+              <h2 className="section-title" style={{ textAlign: "center", margin: "0 auto 14px" }}>Our Technical Services</h2>
+              <p className="section-desc" style={{ textAlign: "center", margin: "0 auto 16px", maxWidth: 640 }}>We provide a wide range of technical, maintenance, installation and building services for residential and commercial requirements.</p>
+              <div className="divider" style={{ margin: "0 auto" }} />
             </div>
             <div className="svc-cards-grid" role="list">
               {officialServices.map((svc) => {
@@ -942,11 +956,11 @@ export default function App() {
         {/* ── 2. FLYER RATES • AED — OUR CLEANING SERVICES & PRICING ── */}
         <section className="section" style={{ background: "#F8FAFC", paddingTop: 40, paddingBottom: 40 }}>
           <div className="container">
-            <div className="section-head text-center" style={{ marginBottom: 28 }}>
-              <div className="section-tag">Flyer Rates • AED</div>
-              <h2 className="section-title">Our Cleaning Services &amp; Pricing</h2>
-              <p className="section-desc">Selected service rates from our official 2026 Rate List for Dubai apartments, villas, and commercial offices.</p>
-              <div className="divider" />
+            <div className="section-head text-center" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", margin: "0 auto 36px", maxWidth: 780 }}>
+              <div className="section-tag" style={{ margin: "0 auto 12px" }}>Flyer Rates • AED</div>
+              <h2 className="section-title" style={{ textAlign: "center", margin: "0 auto 14px" }}>Our Cleaning Services &amp; Pricing</h2>
+              <p className="section-desc" style={{ textAlign: "center", margin: "0 auto 16px", maxWidth: 640 }}>Selected service rates from our official 2026 Rate List for Dubai apartments, villas, and commercial offices.</p>
+              <div className="divider" style={{ margin: "0 auto" }} />
             </div>
 
             <div className="mhk-rate-hero-card" id="rate-list-2026">

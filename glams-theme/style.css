@@ -1,6 +1,6 @@
 /*
 Theme Name: GLAMS – MHK Technical Services
-Theme URI: https://react-app-nu-one-90.vercel.app/
+Theme URI: https://react-app-nu-one-90.vercel.app/services#services
 Author: MHK Technical Services
 Author URI: https://mhktechnicalservices.com/
 Description: Complete, production-ready WordPress theme for MHK Technical Services UAE. Matches the live Vercel application (https://react-app-nu-one-90.vercel.app/) with exact Deep Blue (#12304A), UAE Green (#00843D), UAE Red (#C8102E), and Gold Accent (#D4A64A) design system. Fully responsive across all devices (320px–4K), cross-browser compatible (Chrome, Firefox, Safari, Edge), and GLAMS plugin-ready. Includes full React SPA bundle integration and standalone semantic PHP templates for 11 official technical services, DET trade license verification certificate lookup, UAE immigration portal, and interactive quote management.
@@ -4403,6 +4403,57 @@ button, input, select, textarea { font-family: inherit; }
 .glams-drawer-menu-list .sub-menu li a:hover {
   background: #e2efff;
   color: #073F9B;
+}
+
+/* Enhanced Universal Center Alignment for Service Section Headers */
+.glams-section-head,
+.section-head,
+.mhk-pricing-section-head {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.glams-section-head .glams-section-tag,
+.section-head .section-tag,
+.mhk-pricing-section-head .glams-section-tag,
+.mhk-pricing-section-head .section-tag {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+.glams-section-head .glams-section-title,
+.section-head .section-title,
+.mhk-pricing-section-head .glams-section-title,
+.mhk-pricing-section-head .section-title {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.glams-section-head .glams-section-sub,
+.section-head .section-desc,
+.mhk-pricing-section-head .glams-section-sub,
+.mhk-pricing-section-head .section-desc {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 640px !important;
+}
+
+.glams-section-head .divider,
+.section-head .divider,
+.mhk-pricing-section-head .divider {
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 /* 2026 Flyer Rate List Section */

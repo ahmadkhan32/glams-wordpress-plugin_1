@@ -1928,3 +1928,53 @@ body, #glams-root {
   }
 }
 
+/* ── Universal Center Alignment for Services Sections & Cross-Browser Consistency ── */
+.section-head,
+.mhk-pricing-section-head {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.section-head .section-tag,
+.mhk-pricing-section-head .section-tag {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+.section-head .section-title,
+.mhk-pricing-section-head .section-title {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.section-head .section-desc,
+.mhk-pricing-section-head .section-desc {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 640px !important;
+}
+
+.section-head .divider,
+.mhk-pricing-section-head .divider {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#services,
+#our-technical-services,
+#rate-list-2026 {
+  scroll-margin-top: 96px;
+}
+
+

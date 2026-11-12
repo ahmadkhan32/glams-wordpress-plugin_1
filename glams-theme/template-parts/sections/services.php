@@ -22,15 +22,15 @@ $clean_wa = preg_replace( '/[^0-9]/', '', $whatsapp );
   <div class="glams-container">
 
     <!-- ── 1. OUR TECHNICAL SERVICES (11 DET LICENSED ACTIVITIES) ── -->
-    <div class="glams-section-head text-center" id="our-technical-services">
-      <div class="glams-section-tag">
+    <div class="glams-section-head text-center" id="our-technical-services" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto 40px; max-width: 780px;">
+      <div class="glams-section-tag" style="margin: 0 auto 12px;">
         <i class="fa-solid fa-screwdriver-wrench"></i>
         <span><?php esc_html_e( 'Our Services', 'glams-theme' ); ?></span>
       </div>
-      <h2 class="glams-section-title">
+      <h2 class="glams-section-title" style="text-align: center; margin: 0 auto 14px;">
         <?php esc_html_e( 'Our Technical Services', 'glams-theme' ); ?>
       </h2>
-      <p class="glams-section-sub">
+      <p class="glams-section-sub" style="text-align: center; margin: 0 auto 16px; max-width: 640px;">
         <?php esc_html_e( 'We provide a wide range of technical, maintenance, installation and building services for residential and commercial requirements.', 'glams-theme' ); ?>
       </p>
     </div>
@@ -85,15 +85,15 @@ $clean_wa = preg_replace( '/[^0-9]/', '', $whatsapp );
     </div>
 
     <!-- ── 2. FLYER RATES • AED — OUR CLEANING SERVICES & PRICING ── -->
-    <div class="mhk-pricing-section-head text-center" style="margin-top: 64px; margin-bottom: 24px;">
-      <div class="glams-section-tag">
+    <div class="mhk-pricing-section-head text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 64px auto 36px; max-width: 780px;">
+      <div class="glams-section-tag" style="margin: 0 auto 12px;">
         <i class="fa-solid fa-tags"></i>
         <span><?php esc_html_e( 'Flyer Rates • AED', 'glams-theme' ); ?></span>
       </div>
-      <h2 class="glams-section-title">
+      <h2 class="glams-section-title" style="text-align: center; margin: 0 auto 14px;">
         <?php esc_html_e( 'Our Cleaning Services & Pricing', 'glams-theme' ); ?>
       </h2>
-      <p class="glams-section-sub">
+      <p class="glams-section-sub" style="text-align: center; margin: 0 auto 16px; max-width: 640px;">
         <?php esc_html_e( 'Selected service rates from our official 2026 Rate List for Dubai apartments, villas, and commercial offices.', 'glams-theme' ); ?>
       </p>
     </div>
