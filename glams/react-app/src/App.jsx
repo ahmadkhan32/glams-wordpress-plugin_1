@@ -386,14 +386,26 @@ export default function App() {
               onMouseLeave={() => setServicesDropdownOpen(false)}
             >
               <a 
-                onClick={() => {
+                onClick={(e) => {
+                  if (e.target.closest('.nav-arrow')) {
+                    e.stopPropagation();
+                    setServicesDropdownOpen((prev) => !prev);
+                    return;
+                  }
                   navigate("services");
                   setServicesDropdownOpen(false);
                 }}
                 className={`nav-dropdown-toggle ${currentPage === "services" ? "active" : ""}`}
               >
                 <span>Services</span>
-                <i className={`fas fa-chevron-down nav-arrow ${servicesDropdownOpen ? "open" : ""}`} />
+                <i 
+                  className={`fas fa-chevron-down nav-arrow ${servicesDropdownOpen ? "open" : ""}`} 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setServicesDropdownOpen((prev) => !prev);
+                  }}
+                  title="Toggle Services Menu"
+                />
               </a>
 
               <div className={`nav-dropdown-menu ${servicesDropdownOpen ? "show" : ""}`}>

@@ -412,6 +412,9 @@ function glams_get_cleaning_services() {
  */
 function glams_fallback_primary_menu() {
     $home = esc_url( home_url( '/' ) );
+    $services_page = get_page_by_path( 'services' );
+    $services_base = $services_page ? esc_url( get_permalink( $services_page->ID ) ) : $home . 'services';
+    $services_url  = rtrim( $services_base, '/' ) . '#services';
     $cleaning = glams_get_cleaning_services();
 
     echo '<ul id="primary-menu" class="glams-nav-list">';
@@ -419,14 +422,14 @@ function glams_fallback_primary_menu() {
 
     // Services with rich dropdown
     echo '<li class="nav-item menu-item-has-children glams-has-dropdown">';
-    echo '<a href="' . $home . '#services" class="glams-dropdown-toggle">Services <i class="fa-solid fa-chevron-down glams-dropdown-arrow" aria-hidden="true"></i></a>';
+    echo '<a href="' . $services_url . '" class="glams-dropdown-toggle">Services <i class="fa-solid fa-chevron-down glams-dropdown-arrow" aria-hidden="true"></i></a>';
     echo '<ul class="sub-menu glams-dropdown-menu" role="menu">';
 
     foreach ( $cleaning as $cat ) {
         $icon     = esc_attr( $cat['icon'] );
         $title    = esc_html( $cat['title'] );
         $starting = esc_html( $cat['starting'] );
-        $url      = $home . '#service-' . esc_attr( $cat['id'] );
+        $url      = rtrim( $services_base, '/' ) . '#service-' . esc_attr( $cat['id'] );
         echo '<li class="menu-item" role="none">';
         echo '<a href="' . $url . '" role="menuitem">';
         echo '<span class="glams-menu-item-left"><i class="' . $icon . '"></i> ' . $title . '</span>';
@@ -437,7 +440,7 @@ function glams_fallback_primary_menu() {
 
     echo '<li class="glams-menu-divider" role="separator"></li>';
     echo '<li class="menu-item glams-view-all-item" role="none">';
-    echo '<a href="' . $home . '#services" class="glams-view-all-services" role="menuitem">';
+    echo '<a href="' . $services_url . '" class="glams-view-all-services" role="menuitem">';
     echo '<span><i class="fa-solid fa-wand-magic-sparkles"></i> View All Services &amp; 2026 Rates</span>';
     echo '<i class="fa-solid fa-arrow-right"></i>';
     echo '</a>';

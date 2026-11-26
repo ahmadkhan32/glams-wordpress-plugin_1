@@ -28,7 +28,7 @@
     initLogoFallback();
   });
 
-  // ── 2. Header & Sticky Nav ───────────────────────────────────────────
+  // ── 2. Header & Sticky Nav & Dropdowns ───────────────────────────────────
   function initHeader() {
     var header = document.querySelector('.glams-header');
     if (!header) return;
@@ -40,6 +40,78 @@
         header.classList.remove('is-sticky');
       }
     }, { passive: true });
+
+    // Desktop/Tablet click & touch support for Services Dropdown
+    var desktopDropdowns = document.querySelectorAll('.glams-nav .glams-has-dropdown, .glams-nav .menu-item-has-children');
+    desktopDropdowns.forEach(function (parent) {
+      var toggle = parent.querySelector('a');
+      if (!toggle) return;
+      toggle.addEventListener('click', function (e) {
+        if (window.innerWidth >= 992) {
+          var isArrow = e.target.classList.contains('glams-dropdown-arrow') || e.target.closest('.glams-dropdown-arrow');
+          if (isArrow || 'ontouchstart' in window) {
+            var wasOpen = parent.classList.contains('is-open');
+            desktopDropdowns.forEach(function (p) { p.classList.remove('is-open'); });
+            if (!wasOpen) {
+              e.preventDefault();
+              parent.classList.add('is-open');
+            }
+          }
+        }
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.glams-nav')) {
+        desktopDropdowns.forEach(function (p) { p.classList.remove('is-open'); });
+      }
+    });
+
+    // Cross-Browser Smooth Scrolling with Header Offset
+    function scrollToTarget(hash) {
+      if (!hash) return;
+      var cleanId = hash.replace(/^#\/?/, '');
+      var el = document.getElementById(cleanId);
+      if (el) {
+        var headerOffset = 88;
+        var elementPosition = el.getBoundingClientRect().top;
+        var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    if (window.location.hash) {
+      window.setTimeout(function () {
+        scrollToTarget(window.location.hash);
+      }, 250);
+    }
+
+    document.querySelectorAll('a[href*="#"]').forEach(function (anchor) {
+      anchor.addEventListener('click', function (e) {
+        var href = this.getAttribute('href');
+        if (!href) return;
+        var hashIdx = href.indexOf('#');
+        if (hashIdx !== -1) {
+          var hash = href.substring(hashIdx);
+          var path = href.substring(0, hashIdx);
+          var isCurrentPage = !path || path === window.location.pathname || path === '/' || path === window.location.href.split('#')[0];
+          if (isCurrentPage) {
+            var targetId = hash.replace(/^#\/?/, '');
+            var targetEl = document.getElementById(targetId);
+            if (targetEl) {
+              e.preventDefault();
+              scrollToTarget(hash);
+              if (window.history.pushState) {
+                window.history.pushState(null, null, hash);
+              }
+            }
+          }
+        }
+      });
+    });
   }
 
   // ── 3. Mobile Navigation Drawer ──────────────────────────────────────

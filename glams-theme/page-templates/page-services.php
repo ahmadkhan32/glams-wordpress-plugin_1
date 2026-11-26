@@ -19,7 +19,7 @@ $whatsapp            = get_theme_mod( 'glams_whatsapp', '971582166143' );
 $clean_wa            = preg_replace( '/[^0-9]/', '', $whatsapp );
 ?>
 
-<div class="glams-page-hero">
+<div class="glams-page-hero" id="services">
   <div class="glams-container">
     <div class="glams-section-tag">
       <i class="fa-solid fa-screwdriver-wrench"></i>

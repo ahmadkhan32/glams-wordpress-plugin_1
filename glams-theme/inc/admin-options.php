@@ -103,19 +103,23 @@ function glams_auto_create_default_menu( $force = false ) {
 
             $home_url = home_url( '/' );
 
+            $services_page = get_page_by_path( 'services' );
+            $services_base = $services_page ? get_permalink( $services_page->ID ) : $home_url . 'services';
+            $services_url  = rtrim( $services_base, '/' ) . '#services';
+
             // 1. Home
             wp_update_nav_menu_item( $menu_id, 0, [
                 'menu-item-title'    => 'Home',
-                'menu-item-url'      => $home_url . '#home',
+                'menu-item-url'      => $home_url,
                 'menu-item-status'   => 'publish',
                 'menu-item-type'     => 'custom',
                 'menu-item-position' => 1,
             ] );
 
-            // 2. Services (Parent Item for Dropdown)
+            // 2. Services (Parent Item for Dropdown) — links to /services#services
             $services_item_id = wp_update_nav_menu_item( $menu_id, 0, [
                 'menu-item-title'    => 'Services',
-                'menu-item-url'      => $home_url . '#services',
+                'menu-item-url'      => $services_url,
                 'menu-item-status'   => 'publish',
                 'menu-item-type'     => 'custom',
                 'menu-item-position' => 2,
@@ -123,14 +127,14 @@ function glams_auto_create_default_menu( $force = false ) {
 
             // Child items under Services Dropdown (From 2026 Flyer Rate List)
             $cleaning_services = [
-                [ 'title' => 'Home Cleaning (from 120 AED)',          'url' => $home_url . '#service-home-cleaning' ],
-                [ 'title' => 'Villa Cleaning (from 450 AED)',         'url' => $home_url . '#service-villa-cleaning' ],
-                [ 'title' => 'Deep Cleaning (from 250 AED)',          'url' => $home_url . '#service-deep-cleaning' ],
-                [ 'title' => 'Sofa & Carpet Cleaning (from 40 AED)',  'url' => $home_url . '#service-sofa-carpet-cleaning' ],
-                [ 'title' => 'Kitchen Cleaning (from 150 AED)',       'url' => $home_url . '#service-kitchen-cleaning' ],
-                [ 'title' => 'Office Cleaning (from 25 AED/hr)',      'url' => $home_url . '#service-office-cleaning' ],
-                [ 'title' => 'Maid Services (from 25 AED/hr)',        'url' => $home_url . '#service-maid-services' ],
-                [ 'title' => 'View All Services & 2026 Rates →',     'url' => $home_url . '#services' ],
+                [ 'title' => 'Home Cleaning (from 120 AED)',          'url' => rtrim( $services_base, '/' ) . '#service-home-cleaning' ],
+                [ 'title' => 'Villa Cleaning (from 450 AED)',         'url' => rtrim( $services_base, '/' ) . '#service-villa-cleaning' ],
+                [ 'title' => 'Deep Cleaning (from 250 AED)',          'url' => rtrim( $services_base, '/' ) . '#service-deep-cleaning' ],
+                [ 'title' => 'Sofa & Carpet Cleaning (from 40 AED)',  'url' => rtrim( $services_base, '/' ) . '#service-sofa-carpet-cleaning' ],
+                [ 'title' => 'Kitchen Cleaning (from 150 AED)',       'url' => rtrim( $services_base, '/' ) . '#service-kitchen-cleaning' ],
+                [ 'title' => 'Office Cleaning (from 25 AED/hr)',      'url' => rtrim( $services_base, '/' ) . '#service-office-cleaning' ],
+                [ 'title' => 'Maid Services (from 25 AED/hr)',        'url' => rtrim( $services_base, '/' ) . '#service-maid-services' ],
+                [ 'title' => 'View All Services & 2026 Rates →',     'url' => $services_url ],
             ];
 
             if ( $services_item_id && ! is_wp_error( $services_item_id ) ) {
@@ -187,7 +191,20 @@ function glams_auto_create_default_menu( $force = false ) {
         }
     }
 }
-add_action( 'after_switch_theme', 'glams_auto_create_default_menu' );
+function glams_on_theme_activation() {
+    glams_create_default_pages();
+    glams_auto_create_default_menu();
+}
+add_action( 'after_switch_theme', 'glams_on_theme_activation' );
+
+function glams_check_first_install() {
+    if ( ! get_option( 'glams_initial_setup_done' ) && current_user_can( 'edit_theme_options' ) ) {
+        glams_create_default_pages();
+        glams_auto_create_default_menu();
+        update_option( 'glams_initial_setup_done', 1 );
+    }
+}
+add_action( 'admin_init', 'glams_check_first_install' );
 
 /**
  * Returns definition of all standard pages and templates
