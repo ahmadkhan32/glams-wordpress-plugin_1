@@ -46,7 +46,7 @@ $activities = glams_get_activities_by_company( 1 );
             <i class="fa-solid fa-print"></i>
             <span><?php esc_html_e( 'Print Certificate', 'glams-theme' ); ?></span>
           </button>
-          <a href="#contact" class="glams-btn glams-btn-primary glams-btn-sm">
+          <a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>" class="glams-btn glams-btn-primary glams-btn-sm">
             <i class="fa-solid fa-shield-check"></i>
             <span><?php esc_html_e( 'Verify Authenticity', 'glams-theme' ); ?></span>
           </a>

@@ -151,17 +151,18 @@ function glams_auto_create_default_menu( $force = false ) {
                 }
             }
 
-            // Remaining Top-Level Navigation Items
-            $other_items = [
-                [ 'title' => 'DET License',  'url' => $home_url . '#license' ],
-                [ 'title' => 'Companies',    'url' => $home_url . '#companies' ],
-                [ 'title' => 'Immigration',  'url' => $home_url . '#immigration' ],
-                [ 'title' => 'About Us',     'url' => $home_url . '#about' ],
-                [ 'title' => 'Contact',      'url' => $home_url . '#contact' ],
-            ];
+            // Remaining Top-Level Navigation Items (use real created WP pages if available, else homepage section anchors)
+            $page_links = [];
+            foreach ( [ 'license' => 'DET License', 'companies' => 'Companies', 'immigration' => 'Immigration', 'about' => 'About Us', 'contact' => 'Contact' ] as $slug => $label ) {
+                $pg = get_page_by_path( $slug );
+                $page_links[] = [
+                    'title' => $label,
+                    'url'   => $pg ? get_permalink( $pg->ID ) : $home_url . '#' . $slug,
+                ];
+            }
 
             $order = 15;
-            foreach ( $other_items as $item ) {
+            foreach ( $page_links as $item ) {
                 wp_update_nav_menu_item( $menu_id, 0, [
                     'menu-item-title'    => $item['title'],
                     'menu-item-url'      => $item['url'],
@@ -193,15 +194,20 @@ function glams_auto_create_default_menu( $force = false ) {
 }
 function glams_on_theme_activation() {
     glams_create_default_pages();
-    glams_auto_create_default_menu();
+    glams_auto_create_default_menu( true );
+    update_option( 'glams_initial_setup_done', 1 );
+    update_option( 'glams_theme_setup_ver', defined( 'GLAMS_THEME_VERSION' ) ? GLAMS_THEME_VERSION : '2.2.0' );
 }
 add_action( 'after_switch_theme', 'glams_on_theme_activation' );
 
 function glams_check_first_install() {
-    if ( ! get_option( 'glams_initial_setup_done' ) && current_user_can( 'edit_theme_options' ) ) {
+    $target_ver = defined( 'GLAMS_THEME_VERSION' ) ? GLAMS_THEME_VERSION : '2.2.0';
+    $stored_ver = get_option( 'glams_theme_setup_ver', '' );
+    if ( $stored_ver !== $target_ver && current_user_can( 'edit_theme_options' ) ) {
         glams_create_default_pages();
-        glams_auto_create_default_menu();
+        glams_auto_create_default_menu( ! get_option( 'glams_initial_setup_done' ) );
         update_option( 'glams_initial_setup_done', 1 );
+        update_option( 'glams_theme_setup_ver', $target_ver );
     }
 }
 add_action( 'admin_init', 'glams_check_first_install' );
@@ -287,6 +293,14 @@ function glams_create_default_pages() {
                 if ( ! empty( $p['is_front'] ) ) {
                     update_option( 'show_on_front', 'page' );
                     update_option( 'page_on_front', $page_id );
+                }
+            }
+        } else {
+            // Ensure existing pages have their assigned template intact
+            if ( ! empty( $p['template'] ) && 'front-page.php' !== $p['template'] ) {
+                $current_tpl = get_post_meta( $existing->ID, '_wp_page_template', true );
+                if ( empty( $current_tpl ) || 'default' === $current_tpl ) {
+                    update_post_meta( $existing->ID, '_wp_page_template', $p['template'] );
                 }
             }
         }

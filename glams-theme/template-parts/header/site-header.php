@@ -73,7 +73,7 @@ $clean_wa  = preg_replace( '/[^0-9]/', '', $whatsapp );
       </nav>
 
       <div class="glams-header-actions">
-        <a href="#contact" class="glams-btn glams-btn-primary glams-btn-sm">
+        <a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>" class="glams-btn glams-btn-primary glams-btn-sm">
           <span><?php esc_html_e( 'Get a Quote', 'glams-theme' ); ?></span>
           <i class="fa-solid fa-arrow-right"></i>
         </a>

@@ -75,7 +75,7 @@ $clean_wa = preg_replace( '/[^0-9]/', '', $whatsapp );
               <span><?php esc_html_e( 'View Specifications', 'glams-theme' ); ?></span>
               <i class="fa-solid fa-chevron-down"></i>
             </button>
-            <a href="#contact" class="glams-btn glams-btn-outline glams-btn-sm glams-svc-quote-btn" data-service="<?php echo esc_attr( $svc['title'] ); ?>">
+            <a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>" class="glams-btn glams-btn-outline glams-btn-sm glams-svc-quote-btn" data-service="<?php echo esc_attr( $svc['title'] ); ?>">
               <span><?php esc_html_e( 'Book Service', 'glams-theme' ); ?></span>
               <i class="fa-solid fa-arrow-right"></i>
             </a>

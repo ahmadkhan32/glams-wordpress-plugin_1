@@ -12,6 +12,10 @@ defined( 'ABSPATH' ) || exit;
   <meta charset="<?php bloginfo( 'charset' ); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <link rel="profile" href="https://gmpg.org/xfn/11">
+  <?php if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) : ?>
+    <link rel="icon" type="image/png" href="<?php echo esc_url( GLAMS_THEME_URI . '/assets/images/mhk-technical-services-logo.png' ); ?>">
+    <link rel="apple-touch-icon" href="<?php echo esc_url( GLAMS_THEME_URI . '/assets/images/mhk-technical-services-logo.png' ); ?>">
+  <?php endif; ?>
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

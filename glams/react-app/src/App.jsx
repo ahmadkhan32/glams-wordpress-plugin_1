@@ -180,9 +180,53 @@ const valuesCards = [
 
 const validPages = new Set(["home", "services", "license", "companies", "immigration", "about", "contact", "verify"]);
 
+const isWordPressEnv = () => {
+  if (typeof window === "undefined") return false;
+  if (window.glamsData && window.glamsData.themeUrl) return true;
+  if (typeof document !== "undefined") {
+    if (document.getElementById("page")?.classList.contains("glams-site-wrapper")) return true;
+    if (document.querySelector('link[href*="/themes/glams-theme/"], script[src*="/themes/glams-theme/"]')) return true;
+  }
+  return false;
+};
+
+const getThemeBaseUrl = () => {
+  if (typeof window === "undefined") return "";
+  if (window.glamsData && window.glamsData.themeUrl) {
+    return window.glamsData.themeUrl.replace(/\/+$/, "");
+  }
+  if (typeof document !== "undefined") {
+    const el = document.querySelector('link[href*="/themes/glams-theme/"], script[src*="/themes/glams-theme/"]');
+    if (el) {
+      const url = el.getAttribute("href") || el.getAttribute("src") || "";
+      const match = url.match(/^(.*\/themes\/glams-theme)\//i);
+      if (match) return match[1];
+    }
+  }
+  return "";
+};
+
 const getAppLogoUrl = () => {
-  if (typeof window !== "undefined" && window.glamsData && window.glamsData.logoUrl) {
-    return window.glamsData.logoUrl;
+  if (typeof window !== "undefined") {
+    if (window.glamsData && window.glamsData.logoUrl) {
+      return window.glamsData.logoUrl;
+    }
+    const themeBase = getThemeBaseUrl();
+    if (themeBase) {
+      return `${themeBase}/assets/images/mhk-technical-services-logo.png`;
+    }
+    if (typeof document !== "undefined") {
+      const ssrImg = document.querySelector(".glams-logo-img");
+      if (ssrImg) {
+        const realSrc = ssrImg.getAttribute("data-src") || ssrImg.getAttribute("src");
+        if (realSrc && !realSrc.startsWith("data:") && !realSrc.startsWith("/mhk-technical")) {
+          return realSrc;
+        }
+      }
+      if (isWordPressEnv()) {
+        return "wp-content/themes/glams-theme/assets/images/mhk-technical-services-logo.png";
+      }
+    }
   }
   return "/mhk-technical-services-logo.png";
 };
@@ -306,11 +350,17 @@ export default function App() {
   const navigate = (page) => {
     setCurrentPage(page);
     setMobileOpen(false);
+    const inWp = isWordPressEnv();
     if (window.history.pushState) {
-      const newPath = page === "home" ? "/" : `/${page}`;
-      window.history.pushState({ page }, "", newPath);
+      if (inWp) {
+        window.history.pushState({ page }, "", `#${page}`);
+      } else {
+        const newPath = page === "home" ? "/" : `/${page}`;
+        window.history.pushState({ page }, "", `${newPath}#${page}`);
+      }
+    } else {
+      window.location.hash = page;
     }
-    window.location.hash = page;
     window.scrollTo({ top: 0, behavior: "smooth" });
     if (page === "verify") {
       setSearchResult(null);
@@ -394,12 +444,15 @@ export default function App() {
             <img 
               src={getAppLogoUrl()} 
               alt="MHK Technical Services" 
+              className="skip-lazy"
+              data-no-lazy="1"
+              loading="eager"
               style={{ height: 48, width: "auto", objectFit: "contain" }}
               onError={(e) => {
-                const fb = (typeof window !== "undefined" && window.glamsData && window.glamsData.themeUrl)
-                  ? window.glamsData.themeUrl + "/assets/images/logo.svg"
-                  : "/logo.svg";
-                if (e.currentTarget.src !== fb) {
+                const base = getThemeBaseUrl();
+                const fb = base ? `${base}/assets/images/logo.svg` : (isWordPressEnv() ? "" : "/logo.svg");
+                if (fb && e.currentTarget.src !== fb && !e.currentTarget.dataset.fbTried) {
+                  e.currentTarget.dataset.fbTried = "1";
                   e.currentTarget.src = fb;
                 } else {
                   e.currentTarget.style.display = "none";
@@ -1288,12 +1341,15 @@ export default function App() {
                 <img 
                   src={getAppLogoUrl()} 
                   alt="MHK Technical Services" 
+                  className="skip-lazy"
+                  data-no-lazy="1"
+                  loading="eager"
                   style={{ height: 42, width: "auto", objectFit: "contain" }}
                   onError={(e) => {
-                    const fb = (typeof window !== "undefined" && window.glamsData && window.glamsData.themeUrl)
-                      ? window.glamsData.themeUrl + "/assets/images/logo-white.svg"
-                      : "/logo-white.svg";
-                    if (e.currentTarget.src !== fb) {
+                    const base = getThemeBaseUrl();
+                    const fb = base ? `${base}/assets/images/logo-white.svg` : (isWordPressEnv() ? "" : "/logo-white.svg");
+                    if (fb && e.currentTarget.src !== fb && !e.currentTarget.dataset.fbTried) {
+                      e.currentTarget.dataset.fbTried = "1";
                       e.currentTarget.src = fb;
                     } else {
                       e.currentTarget.style.display = "none";

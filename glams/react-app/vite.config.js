@@ -6,15 +6,26 @@ const isVercel = process.env.VERCEL === "1";
 
 export default defineConfig({
   plugins: [react()],
+  define: {
+    "process.env.NODE_ENV": JSON.stringify("production"),
+  },
   build: {
     outDir: isVercel ? "dist" : path.resolve(__dirname, "../assets/react"),
     emptyOutDir: true,
     rollupOptions: {
-      output: {
-        entryFileNames: "glams-react.js",
-        chunkFileNames: "glams-[name].js",
-        assetFileNames: "glams-[name].[ext]",
-      },
+      output: isVercel
+        ? {
+            entryFileNames: "glams-react.js",
+            chunkFileNames: "glams-[name].js",
+            assetFileNames: "glams-[name].[ext]",
+          }
+        : {
+            format: "iife",
+            name: "GlamsReactApp",
+            inlineDynamicImports: true,
+            entryFileNames: "glams-react.js",
+            assetFileNames: "glams-[name].[ext]",
+          },
     },
   },
   server: {

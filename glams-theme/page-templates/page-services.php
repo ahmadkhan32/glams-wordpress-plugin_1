@@ -44,13 +44,13 @@ $clean_wa            = preg_replace( '/[^0-9]/', '', $whatsapp );
       <?php esc_html_e( 'Our Technical Services', 'glams-theme' ); ?>
     </h2>
     <p class="glams-section-sub" style="text-align: center; margin: 0 auto 16px; max-width: 640px;">
-      <?php esc_html_e( 'All 11 licensed activities approved under Dubai Department of Economy & Tourism (DET) Commercial License DET-2024-001234.', 'glams-theme' ); ?>
+      <?php esc_html_e( 'We provide a wide range of technical, maintenance, installation and building services for residential and commercial requirements.', 'glams-theme' ); ?>
     </p>
   </div>
 
   <div class="glams-services-grid">
     <?php foreach ( $services as $svc ) : ?>
-      <article class="glams-service-card" id="<?php echo esc_attr( $svc['id'] ); ?>">
+      <article class="glams-service-card" id="service-<?php echo esc_attr( $svc['id'] ); ?>">
         <div class="glams-svc-head">
           <div class="glams-svc-icon">
             <i class="fa-solid <?php echo esc_attr( $svc['icon'] ); ?>"></i>

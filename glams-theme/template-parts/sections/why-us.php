@@ -49,7 +49,7 @@ defined( 'ABSPATH' ) || exit;
         </ul>
 
         <div class="glams-why-actions">
-          <a href="#contact" class="glams-btn glams-btn-primary glams-btn-lg">
+          <a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>" class="glams-btn glams-btn-primary glams-btn-lg">
             <span><?php esc_html_e( 'Get Free On-Site Inspection', 'glams-theme' ); ?></span>
             <i class="fa-solid fa-arrow-right"></i>
           </a>

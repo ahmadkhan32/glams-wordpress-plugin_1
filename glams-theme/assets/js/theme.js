@@ -152,7 +152,13 @@
     // Mobile drawer accordion for dropdown menus
     var drawerDropdownParents = drawer.querySelectorAll('.menu-item-has-children, .glams-has-dropdown');
     drawerDropdownParents.forEach(function (parentLi) {
-      var parentLink = parentLi.querySelector(':scope > a');
+      var parentLink = null;
+      for (var i = 0; i < parentLi.children.length; i++) {
+        if (parentLi.children[i].tagName === 'A') {
+          parentLink = parentLi.children[i];
+          break;
+        }
+      }
       if (parentLink) {
         parentLink.addEventListener('click', function (e) {
           e.preventDefault();
@@ -398,9 +404,11 @@
     if (!root) return;
 
     function checkActive() {
-      var hasNav = root.querySelector('.navbar');
-      var hasActiveContent = root.querySelector('.page.active, .hero, .svc-hero, .svc-cards-grid, .mhk-pricing-card');
-      if (hasNav && hasActiveContent && root.children.length > 0) {
+      var nav = root.querySelector('.navbar');
+      var activePage = root.querySelector('.page.active');
+      var hasVisibleNav = nav && nav.offsetHeight > 0;
+      var hasVisiblePage = activePage && activePage.offsetHeight > 0;
+      if (hasVisibleNav && hasVisiblePage && root.children.length > 0) {
         document.body.classList.add('glams-react-active');
         return true;
       } else {
@@ -414,9 +422,10 @@
     var observer = new MutationObserver(function () {
       checkActive();
     });
-    observer.observe(root, { childList: true, subtree: true });
+    observer.observe(root, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] });
 
-    // Fallback safety timeout: if React doesn't mount properly within 1.5s, restore SSR layout
+    // Fallback safety checks: never allow an invisible body/root state
+    window.setTimeout(checkActive, 400);
     window.setTimeout(function () {
       if (!checkActive()) {
         document.body.classList.remove('glams-react-active');
@@ -427,10 +436,17 @@
   // ── 11. Logo Image Fallback ──────────────────────────────────────────
   function initLogoFallback() {
     document.addEventListener('error', function (e) {
-      if (e.target && e.target.tagName === 'IMG' && e.target.getAttribute('src') === '/mhk-technical-services-logo.png') {
-        var fallback = (window.glamsData && window.glamsData.logoUrl) ? window.glamsData.logoUrl : '';
-        if (fallback) {
-          e.target.src = fallback;
+      if (e.target && e.target.tagName === 'IMG') {
+        var rawSrc = e.target.getAttribute('src') || '';
+        if (rawSrc.indexOf('mhk-technical-services-logo.png') !== -1) {
+          var fallback = (window.glamsData && window.glamsData.logoUrl) ? window.glamsData.logoUrl : '';
+          if (fallback && e.target.src !== fallback && !e.target.dataset.wpFb) {
+            e.target.dataset.wpFb = '1';
+            e.target.src = fallback;
+          } else if (window.glamsData && window.glamsData.themeUrl && !e.target.dataset.svgFb) {
+            e.target.dataset.svgFb = '1';
+            e.target.src = window.glamsData.themeUrl.replace(/\/+$/, '') + '/assets/images/logo.svg';
+          }
         }
       }
     }, true);

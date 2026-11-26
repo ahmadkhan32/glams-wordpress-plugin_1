@@ -26,7 +26,7 @@ $clean_wa = preg_replace( '/[^0-9]/', '', $whatsapp );
       </p>
 
       <div class="glams-cta-actions">
-        <a href="#contact" class="glams-btn glams-btn-white glams-btn-lg">
+        <a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>" class="glams-btn glams-btn-white glams-btn-lg">
           <span><?php esc_html_e( 'Schedule On-Site Inspection', 'glams-theme' ); ?></span>
           <i class="fa-solid fa-arrow-right"></i>
         </a>

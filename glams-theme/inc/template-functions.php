@@ -36,13 +36,15 @@ function glams_get_theme_logo( $location = 'header', $variant = 'auto' ) {
         }
     }
 
-    $class_attr = 'glams-logo-img glams-logo-' . esc_attr( $location );
+    $class_attr = 'glams-logo-img glams-logo-' . esc_attr( $location ) . ' skip-lazy';
     if ( $variant === 'white' ) {
         $class_attr .= ' glams-logo-white';
     }
 
+    $fallback_svg = esc_url( GLAMS_THEME_URI . '/assets/images/' . ( $variant === 'white' ? 'logo-white.svg' : 'logo.svg' ) );
+
     $html  = '<a href="' . esc_url( home_url( '/' ) ) . '" class="glams-logo-link" rel="home" aria-label="' . esc_attr( $site_name ) . '">';
-    $html .= '<img src="' . esc_url( $logo_url ) . '" alt="' . esc_attr( $site_name ) . '" class="' . esc_attr( $class_attr ) . '" width="220" height="58" loading="eager" decoding="async" />';
+    $html .= '<img src="' . esc_url( $logo_url ) . '" alt="' . esc_attr( $site_name ) . '" class="' . esc_attr( $class_attr ) . '" width="220" height="58" loading="eager" decoding="async" data-no-lazy="1" onerror="if(this.src!==\'' . $fallback_svg . '\'&&!this.dataset.fb){this.dataset.fb=\'1\';this.src=\'' . $fallback_svg . '\';}" />';
     $html .= '<span class="screen-reader-text">' . esc_html( $site_name ) . '</span>';
     $html .= '</a>';
 
@@ -457,11 +459,26 @@ function glams_fallback_primary_menu() {
     echo '</ul>';
 }
 
+/**
+ * Ensure WordPress custom menu items with children display a dropdown arrow indicator
+ */
+function glams_add_dropdown_arrow_to_menu_items( $title, $item, $args, $depth ) {
+    if ( 0 === (int) $depth && isset( $item->classes ) && is_array( $item->classes ) && in_array( 'menu-item-has-children', $item->classes, true ) ) {
+        if ( false === strpos( $title, 'glams-dropdown-arrow' ) ) {
+            $title .= ' <i class="fa-solid fa-chevron-down glams-dropdown-arrow" aria-hidden="true"></i>';
+        }
+    }
+    return $title;
+}
+add_filter( 'nav_menu_item_title', 'glams_add_dropdown_arrow_to_menu_items', 10, 4 );
+
 function glams_fallback_footer_menu() {
     $home = esc_url( home_url( '/' ) );
+    $services_page = get_page_by_path( 'services' );
+    $services_url  = $services_page ? esc_url( rtrim( get_permalink( $services_page->ID ), '/' ) . '#services' ) : $home . '#services';
     echo '<ul class="glams-footer-links">';
     echo '<li><a href="' . $home . '">Home</a></li>';
-    echo '<li><a href="' . $home . '#services">All Services &amp; 2026 Rates</a></li>';
+    echo '<li><a href="' . $services_url . '">All Services &amp; 2026 Rates</a></li>';
     echo '<li><a href="' . $home . '#license">License Verification</a></li>';
     echo '<li><a href="' . $home . '#immigration">UAE Visa Support</a></li>';
     echo '<li><a href="' . $home . '#about">About MHK</a></li>';
