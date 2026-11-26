@@ -85,7 +85,7 @@ add_action( 'wp_enqueue_scripts', 'glams_enqueue_scripts' );
  */
 function glams_script_loader_tag( $tag, $handle, $src ) {
     if ( 'glams-react' === $handle ) {
-        return '<script type="module" crossorigin src="' . esc_url( $src ) . '"></script>' . "\n";
+        return '<script type="module" src="' . esc_url( $src ) . '"></script>' . "\n";
     }
     return $tag;
 }

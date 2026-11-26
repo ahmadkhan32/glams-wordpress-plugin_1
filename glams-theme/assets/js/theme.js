@@ -392,27 +392,36 @@
     }, 3200);
   }
 
-  // ── 10. React Mount Observer ─────────────────────────────────────────
+  // ── 10. React Mount Observer & White Screen Prevention ─────────────────
   function initReactMountObserver() {
     var root = document.getElementById('glams-root');
     if (!root) return;
 
     function checkActive() {
-      if (root.querySelector('.top-bar, .navbar, .site-footer')) {
+      var hasNav = root.querySelector('.navbar');
+      var hasActiveContent = root.querySelector('.page.active, .hero, .svc-hero, .svc-cards-grid, .mhk-pricing-card');
+      if (hasNav && hasActiveContent && root.children.length > 0) {
         document.body.classList.add('glams-react-active');
         return true;
+      } else {
+        document.body.classList.remove('glams-react-active');
+        return false;
       }
-      return false;
     }
 
-    if (!checkActive()) {
-      var observer = new MutationObserver(function () {
-        if (checkActive()) {
-          observer.disconnect();
-        }
-      });
-      observer.observe(root, { childList: true, subtree: true });
-    }
+    checkActive();
+
+    var observer = new MutationObserver(function () {
+      checkActive();
+    });
+    observer.observe(root, { childList: true, subtree: true });
+
+    // Fallback safety timeout: if React doesn't mount properly within 1.5s, restore SSR layout
+    window.setTimeout(function () {
+      if (!checkActive()) {
+        document.body.classList.remove('glams-react-active');
+      }
+    }, 1500);
   }
 
   // ── 11. Logo Image Fallback ──────────────────────────────────────────

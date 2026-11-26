@@ -180,6 +180,13 @@ const valuesCards = [
 
 const validPages = new Set(["home", "services", "license", "companies", "immigration", "about", "contact", "verify"]);
 
+const getAppLogoUrl = () => {
+  if (typeof window !== "undefined" && window.glamsData && window.glamsData.logoUrl) {
+    return window.glamsData.logoUrl;
+  }
+  return "/mhk-technical-services-logo.png";
+};
+
 function statusBadge(status, arabic = false) {
   const text = arabic
     ? status === "active"
@@ -198,10 +205,24 @@ function statusBadge(status, arabic = false) {
 }
 
 function getPageFromLocation() {
-  const path = window.location.pathname.replace(/^\/+|\/+$/g, "");
-  const hash = window.location.hash.replace(/^#\/?/, "");
-  if (validPages.has(path)) return path;
+  if (typeof window === "undefined") return "home";
+
+  // 1. Check hash first for direct anchor/tab routing (e.g. #services, #contact, #license)
+  const hash = (window.location.hash || "").replace(/^#\/?/, "").toLowerCase();
   if (validPages.has(hash)) return hash;
+  if (hash.startsWith("service-") || hash === "our-technical-services" || hash === "rate-list-2026") {
+    return "services";
+  }
+
+  // 2. Check path segments (handles subdirectories like /wordpress/services, /site/about, etc.)
+  const pathSegments = (window.location.pathname || "").split("/").filter(Boolean);
+  for (let i = pathSegments.length - 1; i >= 0; i--) {
+    const segment = pathSegments[i].toLowerCase();
+    if (validPages.has(segment)) {
+      return segment;
+    }
+  }
+
   return "home";
 }
 
@@ -370,7 +391,21 @@ export default function App() {
       <nav className="navbar">
         <div className="container navbar-inner">
           <div className="nav-logo" onClick={() => navigate("home")} style={{ display: "flex", alignItems: "center", gap: 10 }}> 
-            <img src="/mhk-technical-services-logo.png" alt="MHK Technical Services" style={{ height: 48, width: "auto", objectFit: "contain" }} />
+            <img 
+              src={getAppLogoUrl()} 
+              alt="MHK Technical Services" 
+              style={{ height: 48, width: "auto", objectFit: "contain" }}
+              onError={(e) => {
+                const fb = (typeof window !== "undefined" && window.glamsData && window.glamsData.themeUrl)
+                  ? window.glamsData.themeUrl + "/assets/images/logo.svg"
+                  : "/logo.svg";
+                if (e.currentTarget.src !== fb) {
+                  e.currentTarget.src = fb;
+                } else {
+                  e.currentTarget.style.display = "none";
+                }
+              }}
+            />
             <div className="nav-logo-text">
               <div className="brand">MHK Technical Services</div>
               <div className="tagline">Technical Contracting &amp; Facility Solutions</div>
@@ -1250,7 +1285,21 @@ export default function App() {
           <div className="footer-grid">
             <div className="footer-brand">
               <div className="brand-name" style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                <img src="/mhk-technical-services-logo.png" alt="MHK Technical Services" style={{ height: 42, width: "auto", objectFit: "contain" }} />
+                <img 
+                  src={getAppLogoUrl()} 
+                  alt="MHK Technical Services" 
+                  style={{ height: 42, width: "auto", objectFit: "contain" }}
+                  onError={(e) => {
+                    const fb = (typeof window !== "undefined" && window.glamsData && window.glamsData.themeUrl)
+                      ? window.glamsData.themeUrl + "/assets/images/logo-white.svg"
+                      : "/logo-white.svg";
+                    if (e.currentTarget.src !== fb) {
+                      e.currentTarget.src = fb;
+                    } else {
+                      e.currentTarget.style.display = "none";
+                    }
+                  }}
+                />
                 <span>MHK Technical Services</span>
               </div>
               <p>Premier UAE Technical &amp; Facility Maintenance Solutions. Delivering HVAC, MEP, tiling, carpentry, and building services across Dubai and all seven Emirates.</p>
